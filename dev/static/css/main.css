@@ -567,23 +567,36 @@ blockquote {
   background-size: 105px, 62px;
   background-repeat: no-repeat;
   opacity: 1;
-  -webkit-transition: opacity .4s;
-  transition: opacity .4s;
 }
 
 .k-1 {
-  top: 0;
-  left: 0;
+  top: -20%;
+  left: -20%;
 }
 
 .k-2 {
-  top: 16%;
-  left: 3%;
+  top: -20%;
+  left: -20%;
 }
 
 .k-3 {
-  top: 0;
-  left: 10%;
+  top: -20%;
+  left: -20%;
+}
+
+.k-4 {
+  top: -20%;
+  left: -20%;
+}
+
+.k-5 {
+  top: -20%;
+  left: -20%;
+}
+
+.k-6 {
+  top: -20%;
+  left: -20%;
 }
 
 .k.is-hidden {
@@ -636,12 +649,9 @@ blockquote {
 .block {
   position: absolute;
   display: inline-block;
-  background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: 0px -42px;
-  width: 21px;
-  height: 20px;
-  background-size: 105px, 62px;
-  background-repeat: no-repeat;
+  width: 34px;
+  height: 34px;
+  background: url("/static/img/content/close.svg") 50% 50% no-repeat;
   opacity: 1;
   -webkit-transition: opacity .4s;
   transition: opacity .4s;
@@ -653,8 +663,11 @@ blockquote {
 }
 
 .block-2 {
-  top: 48%;
-  left: 85%;
+  width: 44px;
+  height: 44px;
+  top: 44%;
+  left: 83%;
+  background: url("/static/img/content/close2.svg") 50% 50% no-repeat;
 }
 
 .block.is-hidden {
@@ -1551,7 +1564,7 @@ p {
 }
 
 .formula .desc_blue.mod-pos-2 {
-  top: 70px;
+  top: 10px;
   left: 24%;
   opacity: 0;
   -webkit-transition: opacity .5s 2s;
@@ -1579,6 +1592,7 @@ p {
 }
 
 .formula.is-loaded .mod_bird {
+  top: 70px;
   opacity: 1;
   -webkit-transition: 1s;
   transition: 1s;
@@ -1835,10 +1849,10 @@ p {
 
 .stimulant {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 45%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: opacity .6s, top 1.4s .7s;
+  transition: opacity .6s, top 1.4s .7s;
 }
 
 .stimulant__name {
@@ -1866,6 +1880,7 @@ p {
 }
 
 .stimulant.is-hidden {
+  top: 80%;
   opacity: 0;
 }
 

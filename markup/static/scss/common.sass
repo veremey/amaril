@@ -560,7 +560,7 @@ p
 				height: 14px
 				background-image: url('../img/content/three/icon-bird.png')
 		&.mod-pos-2
-			top: 70px
+			top: 10px
 			left: 24%
 			opacity: 0
 			transition: opacity .5s 2s
@@ -580,8 +580,13 @@ p
 		+lr
 	&.is-loaded
 		.mod_bird
+			top: 70px
 			opacity: 1
 			+tr(1s)
+		// .k
+		// 	opacity: 1
+		// 	transition: opacity .4s 1.4s
+
 .slider
 	position: relative
 	display: flex
@@ -757,9 +762,10 @@ p
 
 .stimulant
 	position: absolute
-	top: 80%
+	top: 50%
 	left: 45%
-	+tr(.6s)
+	transition: opacity .6s, top 1.4s .7s
+	// +tr(.6s)
 	&__name
 		font-size: 18px
 		color: #13942C
@@ -778,6 +784,7 @@ p
 		border-radius: 60%
 		border: 2px solid #AD9AC1
 	&.is-hidden
+		top: 80%
 		opacity: 0
 	&.is-removed
 		top: 20%

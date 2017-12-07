@@ -93,9 +93,12 @@ $(document).ready(function () {
 /*------  page two  -----------------*/
 
 	let getPage = document.querySelector('.page');
-	let tlStart = new TimelineMax();
+	let tlStartCa = new TimelineMax();
+	let tlStartK = new TimelineMax();
 	let tl2 = new TimelineMax();
 	let tl3 = new TimelineMax();
+	let formula = document.querySelector('.formula');
+
 	let sliderBtns = document.getElementsByClassName('slider__btn');
 	let btn1 = document.querySelector('.slider_1');
 	let btn2 = document.querySelector('.slider_2');
@@ -117,7 +120,9 @@ $(document).ready(function () {
 	let k1 = document.querySelector('.k-1');
 	let k2 = document.querySelector('.k-2');
 	let k3 = document.querySelector('.k-3');
-
+	let k4 = document.querySelector('.k-4');
+	let k5 = document.querySelector('.k-5');
+	let k6 = document.querySelector('.k-6');
 
 /*------- anim options  ----------------------*/
 		let startCa1 = [
@@ -141,59 +146,151 @@ $(document).ready(function () {
 				{top: '0%', left: '80%'},
 				{top: '17%', left: '75%'}
 			];
-	/*---------------------------------*/
+	/*------- start ------------------*/
 		let startK1 = [
 				{top: '0%', left: '0%'},
-				{top: '42%', left: '4%'}
+				{top: '42%', left: '4%'},
+				{top: '53%', left: '13%'},
+				{top: '79%', left: '23%'},
+				{top: '83%', left: '33%'}
 			];
 		let startK2 = [
 				{top: '16%', left: '3%'},
-				{top: '46%', left: '12%'}
+				{top: '46%', left: '12%'},
+				{top: '103%', left: '30%'}
 			];
 		let startK3 = [
 				{top: '0%', left: '10%'},
+				{top: '26%', left: '10%'},
+				{top: '53%', left: '13%'},
+				{top: '87%', left: '23%'},
+			];
+
+		let startK4 = [
+				{top: '0%', left: '0%'},
+				{top: '42%', left: '4%'}
+			];
+		let startK5 = [
+				{top: '16%', left: '3%'},
+				{top: '46%', left: '12%'}
+			];
+		let startK6 = [
+				{top: '0%', left: '10%'},
 				{top: '26%', left: '10%'}
 			];
+	/*------ start animation-------------------------*/
+		tlStartCa
+			.to(ca1, .6, {
+				bezier : {
+					values: startCa1
+				},
+				onStart: function () {
+					formula.classList.add('is-loaded');
+				}
+			}, '-=.4')
+			.to(ca2, .6, {
+				bezier : {
+					values: startCa2
+				}
+			}, '-=.4')
+			.to(ca4, .6, {
+				bezier : {
+					values: startCa4
+				}
+			}, '-=.4')
+			.to(ca3, .6, {
+				bezier : {
+					values: startCa3
+				}
+			}, '-=.4')
+			.to(ca5, .6, {
+				bezier : {
+					values: startCa5
+				},
+				delay: 0
+			}, '-=.4');
+		tlStartCa.pause();
+
+		tlStartK
+			.to(k1, .6, {
+				bezier : {
+					values: startK1
+				},
+				delay: .9
+			}, '-=.4')
+			.to(k2, .6, {
+				bezier : {
+					values: startK2
+				},
+			}, '-=.4')
+			.to(k3, .6, {
+				bezier : {
+					values: startK3
+				},
+			}, '-=.4')
+			.to(k4, .6, {
+				bezier : {
+					values: startK4
+				},
+			}, '-=.4')
+			.to(k5, .6, {
+				bezier : {
+					values: startK5
+				},
+			}, '-=.4')
+			.to(k6, .6, {
+				bezier : {
+					values: startK6
+				},
+			}, '-=.4');
+			tlStartK.pause();
+
 	/*------ btn2 click options---------------*/
-		let tl2k1 = [
+		let tl2k4 = [
 				{top: '42%', left: '4%'},
 				{top: '43%', left: '6%'},
-				{top: '-30%', left: '-20%'}
+				{top: '48%', left: '10%'},
+				{top: '43%', left: '6%'}
+
 			];
-		let tl2k2 = [
-				{top: '46%', left: '12%'},
-				{top: '49%', left: '12%'},
-				{top: '-30%', left: '-20%'}
+		let tl2k5 = [
+				{top: '46%', left: '12%'}
 			];
-		let tl2k3 = [
+		let tl2k6 = [
 				{top: '26%', left: '10%'},
 				{top: '33%', left: '11%'},
-				{top: '-30%', left: '-20%'}
+				{top: '45%', left: '11%'},
+				{top: '33%', left: '11%'}
 			];
 	/* ----- btn2 click animation ---- */
 		tl2
-			.to(k1, 1, {
+			.to(k4, 1, {
 				bezier: {
-					values: tl2k1
+					values: tl2k4
 				}, delay: .5})
-			.to(k2, 1, {
+			.to(k5, 1, {
 				bezier: {
-					values: tl2k2
+					values: tl2k5
 				}, delay: '-= .8'}, '-= 1')
-			.to(k3, 1, {
+			.to(k6, 1, {
 				bezier: {
-					values: tl2k3
+					values: tl2k6
 				}, delay: '-= .8'}, '-= 1');
 			tl2.pause();
 	/*-------  tl3  -----------*/
 
 		let caMoveIn1 = [
 			{top: '22%', left: '96%'}, /*-4-*/
-			{top: '41%', left: '90%'}
+			{top: '41%', left: '84%'},
+			{top: '80%', left: '75%'},
+			{top: '64%', left: '70%'}
+
 		];
 		let caMoveIn3 = [
 			{top: '33%', left: '89%'}, /*-5-*/
-			{top: '32%', left: '81%'}
+			{top: '40%', left: '84%'},
+			{top: '68%', left: '78%'},
+			{top: '79%', left: '68%'}
 		];
 		let caMoveIn2 = [
 			{top: '13%', left: '84%'}, /*-2-*/
@@ -209,7 +306,7 @@ $(document).ready(function () {
 		let caMoveIn5 = [
 			{top: '17%', left: '75%'}, /*-3-*/
 			{top: '43%', left: '85%'},
-			{top: '80%', left: '75%'},
+			{top: '80%', left: '75%'}
 		];
 
 	tl3
@@ -242,54 +339,9 @@ $(document).ready(function () {
 
 /*-------- anim on page load ----------------------*/
 	if(getPage.classList.contains('page-two')) {
-		// let tl = new TimelineMax();
-		let formula = document.querySelector('.formula');
-		formula.classList.add('is-loaded');
 		/*---- anim start-------*/
-		tlStart
-			.to(ca1, .6, {
-				bezier : {
-					values: startCa1
-				}
-			}, '-=.4')
-			.to(ca2, .6, {
-				bezier : {
-					values: startCa2
-				}
-			}, '-=.4')
-			.to(ca4, .6, {
-				bezier : {
-					values: startCa4
-				}
-			}, '-=.4')
-			.to(ca3, .6, {
-				bezier : {
-					values: startCa3
-				}
-			}, '-=.4')
-			.to(ca5, .6, {
-				bezier : {
-					values: startCa5
-				},
-				delay: 0
-			}, '-=.4');
-
-		tlStart
-			.to(k1, .6, {
-				bezier : {
-					values: startK1
-				}
-			}, '-=.4')
-			.to(k2, .6, {
-				bezier : {
-					values: startK2
-				}
-			}, '-=.4')
-			.to(k3, .6, {
-				bezier : {
-					values: startK3
-				}
-			}, '-=.4');
+		tlStartK.play();
+		tlStartCa.play();
 	}
 
 /*--------btn1-----------------------*/
@@ -333,9 +385,12 @@ $(document).ready(function () {
 					showElTwo[i].classList.add('is-hidden');
 				}
 				tl2.reverse().timeScale(8);
-				break;
+
 				/*------------*/
 			case 1:
+				formula.classList.remove('is-loaded');
+				tlStartK.restart();
+				tlStartCa.restart();
 				break;
 			default:
 				console.log('// statements_def');
@@ -346,6 +401,9 @@ $(document).ready(function () {
 				sliderBtns[i].classList.remove('is-active');
 		}
 		this.classList.add('is-active');
+
+		tlStartK.restart();
+		tlStartCa.restart();
 
 	}, false);
 
