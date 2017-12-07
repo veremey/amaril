@@ -156,6 +156,7 @@
 		let showElThree = document.querySelectorAll('[data-three]');
 		let showElFour = document.querySelectorAll('[data-four]');
 		let showElFourEnd = document.querySelectorAll('[data-four-end]');
+		let showElFourStart = document.querySelectorAll('[data-four-start]');
 		let showElFive = document.querySelectorAll('[data-five]');
 
 		let ca1 = document.querySelector('.ca-1');
@@ -217,6 +218,7 @@
 					{top: '42%', left: '4%'}
 				];
 			let startK5 = [
+					{top: '-16%', left: '-20%'},
 					{top: '16%', left: '3%'},
 					{top: '46%', left: '12%'}
 				];
@@ -278,17 +280,17 @@
 					bezier : {
 						values: startK4
 					},
-				}, '-=.4')
+				}, '-=.5')
 				.to(k5, .6, {
 					bezier : {
 						values: startK5
 					},
-				}, '-=.4')
+				}, '-=.5')
 				.to(k6, .6, {
 					bezier : {
 						values: startK6
 					},
-				}, '-=.4');
+				}, '-=.5');
 				tlStartK.pause();
 
 		/*------ btn2 click options---------------*/
@@ -505,7 +507,7 @@
 			}
 			this.classList.add('is-active');
 
-			tl2.play().timeScale(1);
+			tl2.restart().timeScale(1);
 		}, false);
 
 	/*-------- btn3 ----------------*/
@@ -561,7 +563,7 @@
 				showElThree[i].classList.add('is-hidden');
 			}
 			this.classList.add('is-active');
-			tl3.play().timeScale(1);
+			tl3.restart().timeScale(1);
 
 		}, false);
 	/*-------- btn4 ------------------*/
@@ -582,6 +584,13 @@
 
 					getPic.setAttribute('src', newPic);
 					box.classList.remove('is-removed');
+
+					for (let i = showElFourStart.length - 1; i >= 0; i--) {
+						showElFourStart[i].classList.add('is-timer');
+						setTimeout(function () {
+							showElFourStart[i].classList.remove('is-timer');
+						}, 2000);
+					}
 
 				case 4:
 					/* -- you are here -*/
@@ -609,7 +618,12 @@
 					console.log('// statements_def');
 					break;
 			}
+			/*-restart old anim-*/
+			for (let i = showElFour.length - 1; i >= 0; i--) {
+				showElFour[i].classList.add('is-hidden');
+			}
 
+			/*-start new anim*/
 			for (let i = sliderBtns.length - 1; i >= 0; i--) {
 					sliderBtns[i].classList.remove('is-active');
 			}
@@ -653,7 +667,19 @@
 
 			let box = document.querySelector('.stimulant');
 			let getPic = document.querySelector('.formula__pic');
+			let oldPic = 'static/img/content/two/formula.png';
 			let newPic = 'static/img/content/two/formula-01.png';
+			/*-restart 4 pos */
+			for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+				showElFourEnd[i].classList.remove('is-hidden');
+			}
+			for (let i = showElFive.length - 1; i >= 0; i--) {
+				showElFive[i].classList.add('is-hidden');
+			}
+			getPic.setAttribute('src', oldPic);
+
+			box.classList.remove('is-removed');
+			/*-set new pos*/
 
 			for (let i = sliderBtns.length - 1; i >= 0; i--) {
 					sliderBtns[i].classList.remove('is-active');

@@ -1884,13 +1884,21 @@ p {
   opacity: 0;
 }
 
+.stimulant.is-timer {
+  top: 80%;
+}
+
 .stimulant.is-removed {
   top: 20%;
   left: 43%;
+  -webkit-transition: top .6s;
+  transition: top .6s;
 }
 
 .stimulant.is-removed .stimulant__box {
   border-color: transparent;
+  -webkit-transition: border-color .6s .4s;
+  transition: border-color .6s .4s;
 }
 
 .stimulant.is-removed .stimulant__item_1 {

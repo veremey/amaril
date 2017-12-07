@@ -786,13 +786,17 @@ p
 	&.is-hidden
 		top: 80%
 		opacity: 0
+	&.is-timer
+		top: 80%
 	&.is-removed
 		top: 20%
 		left: 43%
+		transition: top .6s
 
 	&.is-removed &
 		&__box
 			border-color: $n
+			transition: border-color .6s .4s
 		&__item_1
 			top: 0
 			left: 20px
