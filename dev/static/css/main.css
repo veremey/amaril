@@ -651,7 +651,7 @@ blockquote {
   display: inline-block;
   width: 34px;
   height: 34px;
-  background: url("/static/img/content/close.svg") 50% 50% no-repeat;
+  background: url("../img/content/close.svg") 50% 50% no-repeat;
   opacity: 1;
   -webkit-transition: opacity .4s;
   transition: opacity .4s;
@@ -667,7 +667,7 @@ blockquote {
   height: 44px;
   top: 44%;
   left: 83%;
-  background: url("/static/img/content/close2.svg") 50% 50% no-repeat;
+  background: url("../img/content/close2.svg") 50% 50% no-repeat;
 }
 
 .block.is-hidden {
@@ -1465,7 +1465,7 @@ p {
 }
 
 /*----------------------------------*/
-.formula {
+.forn {
   position: relative;
   display: block;
   width: 60vw;
@@ -1475,11 +1475,11 @@ p {
   margin-bottom: 30px;
 }
 
-.formula.mod-bottom {
+.forn.mod-bottom {
   margin-bottom: 87px;
 }
 
-.formula__pic {
+.forn__pic {
   position: absolute;
   top: 20px;
   left: 0;
@@ -1488,22 +1488,22 @@ p {
   height: auto;
 }
 
-.formula__pic.pos-2 {
+.forn__pic.pos-2 {
   top: 100px;
 }
 
-.formula__desc {
+.forn__desc {
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-.formula__desc.is-hidden {
+.forn__desc.is-hidden {
   opacity: 0;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
-.formula .desc_green {
+.forn .desc_green {
   position: absolute;
   top: 15px;
   left: 26%;
@@ -1515,12 +1515,12 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
-.formula .desc_green.mod-pos-2 {
+.forn .desc_green.mod-pos-2 {
   top: 14px;
   left: 46.5%;
 }
 
-.formula .desc_green.mod-pos-2:after {
+.forn .desc_green.mod-pos-2:after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -1531,7 +1531,7 @@ p {
   background-image: url("../img/content/three/triagle.png");
 }
 
-.formula .desc_gray {
+.forn .desc_gray {
   position: absolute;
   top: 40px;
   left: 80%;
@@ -1543,7 +1543,7 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
-.formula .desc_blue {
+.forn .desc_blue {
   position: absolute;
   top: 20px;
   left: 0;
@@ -1553,7 +1553,7 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
-.formula .desc_blue.mod_bird:after {
+.forn .desc_blue.mod_bird:after {
   content: '';
   position: absolute;
   bottom: -20px;
@@ -1563,7 +1563,7 @@ p {
   background-image: url("../img/content/three/icon-bird.png");
 }
 
-.formula .desc_blue.mod-pos-2 {
+.forn .desc_blue.mod-pos-2 {
   top: 10px;
   left: 24%;
   opacity: 0;
@@ -1571,13 +1571,13 @@ p {
   transition: opacity .5s 2s;
 }
 
-.formula .desc_blue.mod-pos-2:after {
+.forn .desc_blue.mod-pos-2:after {
   bottom: -30px;
   -webkit-transform: rotate(-20deg);
           transform: rotate(-20deg);
 }
 
-.formula .desc_center {
+.forn .desc_center {
   width: 200px;
   position: absolute;
   top: 74%;
@@ -1591,7 +1591,7 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
-.formula.is-loaded .mod_bird {
+.forn.is-ready .mod_bird {
   top: 70px;
   opacity: 1;
   -webkit-transition: 1s;
@@ -1970,8 +1970,27 @@ p {
           transform: rotate(180deg);
 }
 
-.actions {
+.explans {
+  display: inline-block;
+  width: 200px;
+  margin-left: 20px;
+}
+
+.explan {
   display: none;
+  width: 200px;
+  margin-left: 20px;
+}
+
+.explan.is-active {
+  display: inline-block;
+}
+
+.explan__desc {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #535CA1;
+  font-family: 'lato-medium-webfont', Arial, sans-serif;
 }
 
 .primo {

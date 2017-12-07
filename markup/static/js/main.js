@@ -97,7 +97,7 @@ $(document).ready(function () {
 	let tlStartK = new TimelineMax();
 	let tl2 = new TimelineMax();
 	let tl3 = new TimelineMax();
-	let formula = document.querySelector('.formula');
+	let formula = document.querySelector('.forn');
 
 	let sliderBtns = document.getElementsByClassName('slider__btn');
 	let btn1 = document.querySelector('.slider_1');
@@ -105,6 +105,13 @@ $(document).ready(function () {
 	let btn3 = document.querySelector('.slider_3');
 	let btn4 = document.querySelector('.slider_4');
 	let btn5 = document.querySelector('.slider_5');
+
+
+	const txt1 = document.querySelector('.explan-1');
+	const txt2 = document.querySelector('.explan-2');
+	const txt3 = document.querySelector('.explan-3');
+	const txt4 = document.querySelector('.explan-4');
+	const txt5 = document.querySelector('.explan-5');
 
 	let showElTwo = document.querySelectorAll('[data-second]');
 	let showElThree = document.querySelectorAll('[data-three]');
@@ -188,6 +195,7 @@ $(document).ready(function () {
 				},
 				onStart: function () {
 					formula.classList.add('is-loaded');
+					showText(txt1);
 				}
 			}, '-=.4')
 			.to(ca2, .6, {
@@ -269,11 +277,16 @@ $(document).ready(function () {
 			.to(k4, 1, {
 				bezier: {
 					values: tl2k4
-				}, delay: .5})
+				},
+				onStart: function () {
+					showText(txt2);
+				},
+				 delay: .5})
 			.to(k5, 1, {
 				bezier: {
 					values: tl2k5
-				}, delay: '-= .8'}, '-= 1')
+				},
+				delay: '-= .8'}, '-= 1')
 			.to(k6, 1, {
 				bezier: {
 					values: tl2k6
@@ -315,7 +328,10 @@ $(document).ready(function () {
 		.to(ca4, 1.6, {
 			bezier: {
 				values: caMoveIn4
-			}
+			},
+			onStart: function () {
+					showText(txt3);
+				}
 		})
 		.to(ca2, 1.6, {
 			bezier: {
@@ -353,7 +369,7 @@ $(document).ready(function () {
 			case 5:
 				/*---- remove what to do in 5 -----*/
 				let box = document.querySelector('.stimulant');
-				let getPic = document.querySelector('.formula__pic');
+				let getPic = document.querySelector('.forn__pic');
 				let newPic = 'static/img/content/two/formula.png';
 
 				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
@@ -415,7 +431,7 @@ $(document).ready(function () {
 			case 5:
 				/*---- remove what to do in 5 -----*/
 				let box = document.querySelector('.stimulant');
-				let getPic = document.querySelector('.formula__pic');
+				let getPic = document.querySelector('.forn__pic');
 				let newPic = 'static/img/content/two/formula.png';
 
 				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
@@ -470,7 +486,7 @@ $(document).ready(function () {
 			case 5:
 				/*---- remove what to do in 5 -----*/
 				let box = document.querySelector('.stimulant');
-				let getPic = document.querySelector('.formula__pic');
+				let getPic = document.querySelector('.forn__pic');
 				let newPic = 'static/img/content/two/formula.png';
 
 				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
@@ -526,7 +542,7 @@ $(document).ready(function () {
 			case 5:
 				/*---- remove what to do in 5 -----*/
 				let box = document.querySelector('.stimulant');
-				let getPic = document.querySelector('.formula__pic');
+				let getPic = document.querySelector('.forn__pic');
 				let newPic = 'static/img/content/two/formula.png';
 
 				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
@@ -585,6 +601,8 @@ $(document).ready(function () {
 			showElFour[i].classList.remove('is-hidden');
 		}
 		this.classList.add('is-active');
+		showText(txt4);
+
 	}, false);
 /*--------- btn5 -----------------*/
 	btn5.addEventListener('click', function () {
@@ -620,7 +638,7 @@ $(document).ready(function () {
 		}
 
 		let box = document.querySelector('.stimulant');
-		let getPic = document.querySelector('.formula__pic');
+		let getPic = document.querySelector('.forn__pic');
 		let oldPic = 'static/img/content/two/formula.png';
 		let newPic = 'static/img/content/two/formula-01.png';
 		/*-restart 4 pos */
@@ -648,34 +666,13 @@ $(document).ready(function () {
 
 		box.classList.add('is-removed');
 		this.classList.add('is-active');
+		showText(txt5);
+
 
 		// getActiveBtn();
 
 
 	}, false);
-
-
-
-// switch (getActiveBtn) {
-// 	case 0:
-// 		console.log('last active1');
-// 		break;
-// 	case 1:
-// 		console.log('last active2');
-// 		break;
-// 	case 2:
-// 		console.log('last active3');
-// 		break;
-// 	case 3:
-// 		console.log('last active4');
-// 		break;
-// 	case 4:
-// 		console.log('last active5');
-// 		break;
-// 	default:
-// 		// statements_def
-// 		break;
-// }
 
 // --------------------------------------------------------
 // --- page three  --------------------
@@ -946,7 +943,14 @@ $(document).ready(function () {
 		return num;
 	}
 
-
+	function showText(arg) {
+		let delActive = document.getElementsByClassName('explan');
+		for (var i = delActive.length - 1; i >= 0; i--) {
+			delActive[i].classList.remove('is-active');
+		}
+		arg.classList.add('is-active');
+		// console.log(el);
+	}
 
 
 });
