@@ -112,6 +112,9 @@
 	display: inline-block;
 	@include bg($icon-k);
 	opacity: 1;
+	@media only screen and (max-width: 760px) {
+		transform: scale(.8)
+	}
 	// transition: opacity .3s;
 	&-1 {
 		// top: 0;
@@ -159,6 +162,9 @@
 	@include bg($icon-ca);
 	opacity: 1;
 	transition: opacity .4s;
+	@media only screen and (max-width: 760px) {
+		transform: scale(.8)
+	}
 	&-1 {
 		top: 0;
 		left: 100%;
@@ -194,6 +200,10 @@
 	&-1 {
 		top: 59%;
 		left: 16%;
+		@media only screen and (max-width: 760px) {
+			top: 60%;
+			left: 14%;
+		}
 	}
 	&-2 {
 		width: 44px;

@@ -533,6 +533,10 @@ p
 	max-height: calc(600px * (265/600))
 	// background: $n url('../img/content/three/formula.png') 0% 100% no-repeat
 	margin-bottom: 30px
+	+r(950)
+		width: 70vw
+		height: calc(70vw * (265/600))
+
 	&.mod-bottom
 		margin-bottom: 87px
 	&__pic
@@ -720,9 +724,13 @@ p
 		&.scale-2
 			transform: translate(0, -36px)
 			width: 647px
+			max-width: 87%
 			background: $n url('../img/content/two/scale.png') 0 100% no-repeat
+			+r(730)
+				background-position: 30%;
 	&.mod-2
 		width: 647px
+		max-width: 87%
 		.slider
 			&_1
 				left: 12%
@@ -828,6 +836,9 @@ p
 		top: 20%
 		left: 43%
 		transition: top .6s
+		+r(690)
+			top: 12%
+			left: 43%
 
 	&.is-removed &
 		&__box
@@ -852,6 +863,9 @@ p
 	left: 71%
 	display: inline-block
 	width: 100px
+	+r(810)
+		top: 19%
+		left: 76%
 	.desc_gray
 		top: 0
 		left: 0

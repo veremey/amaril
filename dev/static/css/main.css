@@ -582,6 +582,13 @@ blockquote {
   opacity: 1;
 }
 
+@media only screen and (max-width: 760px) {
+  .k {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
 .k-1 {
   top: -20%;
   left: -20%;
@@ -630,6 +637,13 @@ blockquote {
   transition: opacity .4s;
 }
 
+@media only screen and (max-width: 760px) {
+  .ca {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
 .ca-1 {
   top: 0;
   left: 100%;
@@ -673,6 +687,13 @@ blockquote {
 .block-1 {
   top: 59%;
   left: 16%;
+}
+
+@media only screen and (max-width: 760px) {
+  .block-1 {
+    top: 60%;
+    left: 14%;
+  }
 }
 
 .block-2 {
@@ -1533,6 +1554,13 @@ p {
   margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 950px) {
+  .forn {
+    width: 70vw;
+    height: calc(70vw * (265/600));
+  }
+}
+
 .forn.mod-bottom {
   margin-bottom: 87px;
 }
@@ -1794,11 +1822,19 @@ p {
   -webkit-transform: translate(0, -36px);
           transform: translate(0, -36px);
   width: 647px;
+  max-width: 87%;
   background: transparent url("../img/content/two/scale.png") 0 100% no-repeat;
+}
+
+@media only screen and (max-width: 730px) {
+  .slider__scale.scale-2 {
+    background-position: 30%;
+  }
 }
 
 .slider.mod-2 {
   width: 647px;
+  max-width: 87%;
 }
 
 .slider.mod-2 .slider_1 {
@@ -1953,6 +1989,13 @@ p {
   transition: top .6s;
 }
 
+@media only screen and (max-width: 690px) {
+  .stimulant.is-removed {
+    top: 12%;
+    left: 43%;
+  }
+}
+
 .stimulant.is-removed .stimulant__box {
   border-color: transparent;
   -webkit-transition: border-color .6s .4s;
@@ -1986,6 +2029,13 @@ p {
   left: 71%;
   display: inline-block;
   width: 100px;
+}
+
+@media only screen and (max-width: 810px) {
+  .convert {
+    top: 19%;
+    left: 76%;
+  }
 }
 
 .convert .desc_gray {
