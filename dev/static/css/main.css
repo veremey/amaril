@@ -422,30 +422,43 @@ blockquote {
 .icon-che {
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: -25px -42px;
+  background-position: -95px 0px;
   width: 25px;
   height: 16px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
 }
 
 .icon-close-red {
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: 0px -42px;
+  background-position: -43px -53px;
   width: 21px;
   height: 20px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
+  background-repeat: no-repeat;
+}
+
+.icon-full {
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  display: inline-block;
+  background-image: url(../img/png-sprite/96dpi/sprite.png);
+  background-position: 0px 0px;
+  width: 49px;
+  height: 49px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
 }
 
 .yo {
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: -85px 0px;
+  background-position: -95px -20px;
   width: 20px;
   height: 19px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
   position: absolute;
   opacity: 1;
@@ -561,10 +574,10 @@ blockquote {
   position: absolute;
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: -42px 0px;
+  background-position: 0px -53px;
   width: 39px;
   height: 37px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
   opacity: 1;
 }
@@ -607,10 +620,10 @@ blockquote {
   position: absolute;
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: 0px 0px;
+  background-position: -53px 0px;
   width: 38px;
   height: 38px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
   opacity: 1;
   -webkit-transition: opacity .4s;
@@ -678,10 +691,10 @@ blockquote {
   position: absolute;
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
-  background-position: -85px -23px;
+  background-position: -95px -43px;
   width: 17px;
   height: 18px;
-  background-size: 105px, 62px;
+  background-size: 120px, 90px;
   background-repeat: no-repeat;
   opacity: 1;
   -webkit-transition: all 1s;
@@ -733,10 +746,8 @@ body {
 }
 
 .page__wrapper {
+  position: relative;
   min-height: 100%;
-  width: calc(100% - 40px);
-  max-width: 910px;
-  padding: 50px 20px 0;
   margin: 0 auto;
   background-color: #F7F8FF;
 }
@@ -760,8 +771,11 @@ body {
 }
 
 .layout {
+  min-height: 100%;
+  width: calc(100% - 40px);
+  max-width: 910px;
+  padding: 50px 20px 0;
   margin: 0 auto;
-  padding: 0 84px;
 }
 
 .layout .rubric {
@@ -777,14 +791,11 @@ body {
   margin-right: 50px;
 }
 
-.layout .literature {
-  margin-left: -84px;
-}
-
 .section__title {
   text-align: center;
   font-size: 24px;
   color: #333;
+  margin-bottom: 1.2em;
   font-family: 'lato-bold-webfont', Arial, sans-serif;
 }
 
@@ -836,7 +847,7 @@ p {
 }
 
 .diagramm {
-  margin-bottom: 110px;
+  margin-bottom: 75px;
   overflow: hidden;
 }
 
@@ -889,28 +900,33 @@ p {
   background-color: #ECEBF2;
 }
 
-.diagramm__subpack p {
-  width: 50%;
-  text-align: center;
-}
-
 .diagramm__layout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.diagramm__layout.mod-b-50 {
-  margin-bottom: 50px;
+.diagramm__layout.mod-b-25 {
+  margin-bottom: 25px;
 }
 
 .diagramm__tip {
   padding: 34px 20px;
   background-color: #969BC5;
   border-radius: 28px;
-  color: #fff;
+}
+
+.diagramm__tip p {
   font-size: 16px;
   line-height: 1.125;
+  color: #fff;
+  font-family: 'lato-regular-webfont', Arial, sans-serif;
+}
+
+.diagramm__tip b {
   font-family: 'lato-bold-webfont', Arial, sans-serif;
 }
 
@@ -972,7 +988,25 @@ p {
 }
 
 .diagramm__sublinage {
-  width: 105px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+}
+
+.diagramm__sublinage .diagramm__body {
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 .diagramm__linage {
@@ -1026,6 +1060,7 @@ p {
 
 .diagramm__body_short {
   width: 470px;
+  margin-bottom: 5px;
 }
 
 .diagramm__iteration {
@@ -1078,9 +1113,8 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
@@ -1098,16 +1132,28 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: right;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 32%;
+          flex: 1 1 32%;
+  text-align: left;
   padding: 14px 20px;
-  width: 100%;
+  font-size: 16px;
 }
 
 .diagramm__explain b {
   font-weight: bold;
+}
+
+.diagramm__labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .diagramm__label {
@@ -1244,15 +1290,17 @@ p {
 
 .table {
   width: 100%;
+  max-width: 850px;
   margin-bottom: 100px;
   table-layout: fixed;
+  margin: 0 auto 90px;
 }
 
 .table th {
   text-align: center;
   background-color: #969BC5;
   color: #fff;
-  padding: 8px 20px;
+  padding: 5px 20px;
   font-size: 16px;
   font-family: 'lato-semibold-webfont', Arial, sans-serif;
   border-right: 1px solid #CACDDA;
@@ -1267,10 +1315,13 @@ p {
 }
 
 .table td {
-  padding: 15px 20px;
+  padding: 12px 20px;
   text-align: center;
   border-right: 1px solid #ECEBED;
   border-top: 1px solid #ECEBED;
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
 .table td:last-child {
@@ -1283,6 +1334,13 @@ p {
 
 .table b {
   font-weight: bold;
+}
+
+.table__desc {
+  vertical-align: super;
+  font-size: 16px;
+  line-height: 1.3;
+  font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
 /*----------------------*/
@@ -1591,7 +1649,7 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
-.forn.is-ready .mod_bird {
+.forn.is-loaded .mod_bird {
   top: 70px;
   opacity: 1;
   -webkit-transition: 1s;
@@ -1973,13 +2031,11 @@ p {
 .explans {
   display: inline-block;
   width: 200px;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .explan {
   display: none;
-  width: 200px;
-  margin-left: 20px;
 }
 
 .explan.is-active {
@@ -2122,7 +2178,8 @@ p {
 }
 
 .rubric {
-  margin-bottom: 90px;
+  margin-bottom: 40px;
+  padding-left: 84px;
   *zoom: 1;
 }
 
@@ -2133,7 +2190,7 @@ p {
 }
 
 .rubric__row {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   *zoom: 1;
 }
 
@@ -2149,8 +2206,13 @@ p {
   text-align: center;
   min-width: 34px;
   width: 34px;
-  margin-right: 35px;
+  margin-right: 40px;
   font-size: 0;
+}
+
+.rubric__pic.rubric_check {
+  width: 40px;
+  min-width: 40px;
 }
 
 .rubric__img {
@@ -2168,7 +2230,7 @@ p {
 
 .rubric__desc {
   float: left;
-  width: calc(100% - 70px);
+  width: calc(100% - 80px);
   font-size: 20px;
   line-height: 1.2;
   color: #333333;
@@ -2183,7 +2245,7 @@ p {
 .rubric__list {
   position: relative;
   font-size: 0;
-  padding-left: 90px;
+  padding-left: 105px;
   margin: 20px 0 0;
 }
 
@@ -2202,10 +2264,6 @@ p {
   font-family: 'lato-bold-webfont', Arial, sans-serif;
 }
 
-.rubric-width {
-  width: 670px;
-}
-
 .footnote {
   font-size: 18px;
   color: #333333;
@@ -2219,7 +2277,7 @@ p {
 }
 
 .literature .page__title {
-  margin-bottom: 1.2em;
+  margin-bottom: 1em;
 }
 
 .literature__list {
@@ -2232,7 +2290,6 @@ p {
   list-style-type: decimal;
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 5px;
   padding-left: 1em;
   color: #333333;
   font-family: 'lato-italic-webfont', Arial, sans-serif;

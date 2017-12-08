@@ -135,8 +135,7 @@
 			.to(secondTwo, .8, {y: -secondTwoHeigth})
 			.to(thirdOne, .8, {y: -thirdOneHeigth})
 			.to(thirdTwo, .8, {y: -thirdTwoHeigth});
-	/*---------------------------------------------------------*/
-	/*------  page two  -----------------*/
+	/*-----------variables page two ----------------------------*/
 
 		let getPage = document.querySelector('.page');
 		let tlStartCa = new TimelineMax();
@@ -144,14 +143,15 @@
 		let tl2 = new TimelineMax();
 		let tl3 = new TimelineMax();
 		let formula = document.querySelector('.forn');
+		let delActive = document.getElementsByClassName('explan');
 
 		let sliderBtns = document.getElementsByClassName('slider__btn');
+		let playBtn = document.querySelector('.slider__play');
 		let btn1 = document.querySelector('.slider_1');
 		let btn2 = document.querySelector('.slider_2');
 		let btn3 = document.querySelector('.slider_3');
 		let btn4 = document.querySelector('.slider_4');
 		let btn5 = document.querySelector('.slider_5');
-
 
 		const txt1 = document.querySelector('.explan-1');
 		const txt2 = document.querySelector('.explan-2');
@@ -178,7 +178,13 @@
 		let k5 = document.querySelector('.k-5');
 		let k6 = document.querySelector('.k-6');
 
+		// let box = document.querySelector('.stimulant');
+		// let getPic = document.querySelector('.forn__pic');
+		// let oldPic = 'static/img/content/two/formula.png';
+		// let newPic = 'static/img/content/two/formula-01.png';
+
 	/*------- anim options  ----------------------*/
+		/*--- bnt1 anim options---*/
 			let startCa1 = [
 					{top: '0%', left: '100%'},
 					{top: '22%', left: '96%'}
@@ -200,7 +206,7 @@
 					{top: '0%', left: '80%'},
 					{top: '17%', left: '75%'}
 				];
-		/*------- start ------------------*/
+		/*------- k ------------------*/
 			let startK1 = [
 					{top: '0%', left: '0%'},
 					{top: '42%', left: '4%'},
@@ -233,74 +239,6 @@
 					{top: '0%', left: '10%'},
 					{top: '26%', left: '10%'}
 				];
-		/*------ start animation-------------------------*/
-			tlStartCa
-				.to(ca1, .6, {
-					bezier : {
-						values: startCa1
-					},
-					onStart: function () {
-						formula.classList.add('is-loaded');
-						showText(txt1);
-					}
-				}, '-=.4')
-				.to(ca2, .6, {
-					bezier : {
-						values: startCa2
-					}
-				}, '-=.4')
-				.to(ca4, .6, {
-					bezier : {
-						values: startCa4
-					}
-				}, '-=.4')
-				.to(ca3, .6, {
-					bezier : {
-						values: startCa3
-					}
-				}, '-=.4')
-				.to(ca5, .6, {
-					bezier : {
-						values: startCa5
-					},
-					delay: 0
-				}, '-=.4');
-			tlStartCa.pause();
-
-			tlStartK
-				.to(k1, .6, {
-					bezier : {
-						values: startK1
-					},
-					delay: .9
-				}, '-=.4')
-				.to(k2, .6, {
-					bezier : {
-						values: startK2
-					},
-				}, '-=.4')
-				.to(k3, .6, {
-					bezier : {
-						values: startK3
-					},
-				}, '-=.4')
-				.to(k4, .6, {
-					bezier : {
-						values: startK4
-					},
-				}, '-=.5')
-				.to(k5, .6, {
-					bezier : {
-						values: startK5
-					},
-				}, '-=.5')
-				.to(k6, .6, {
-					bezier : {
-						values: startK6
-					},
-				}, '-=.5');
-				tlStartK.pause();
-
 		/*------ btn2 click options---------------*/
 			let tl2k4 = [
 					{top: '42%', left: '4%'},
@@ -318,27 +256,7 @@
 					{top: '45%', left: '11%'},
 					{top: '33%', left: '11%'}
 				];
-		/* ----- btn2 click animation ---- */
-			tl2
-				.to(k4, 1, {
-					bezier: {
-						values: tl2k4
-					},
-					onStart: function () {
-						showText(txt2);
-					},
-					 delay: .5})
-				.to(k5, 1, {
-					bezier: {
-						values: tl2k5
-					},
-					delay: '-= .8'}, '-= 1')
-				.to(k6, 1, {
-					bezier: {
-						values: tl2k6
-					}, delay: '-= .8'}, '-= 1');
-				tl2.pause();
-		/*-------  tl3  -----------*/
+		/*-------  btn3 click options- -----------*/
 
 			let caMoveIn1 = [
 				{top: '22%', left: '96%'}, /*-4-*/
@@ -370,356 +288,575 @@
 				{top: '80%', left: '75%'}
 			];
 
-		tl3
-			.to(ca4, 1.6, {
-				bezier: {
-					values: caMoveIn4
-				},
-				onStart: function () {
-						showText(txt3);
-					}
-			})
-			.to(ca2, 1.6, {
-				bezier: {
-					values: caMoveIn2
-				}
-			}, '-= 1')
-			.to(ca5, 1.6, {
-				bezier: {
-					values: caMoveIn5
-				}
-			}, '-= 1')
-			.to(ca1, 1.6, {
-				bezier: {
-					values: caMoveIn1
-				}
-			}, '-= 1')
-			.to(ca3, 1.6, {
-				bezier: {
-					values: caMoveIn3
-				}
-			}, '-= 1');
-			tl3.pause();
-
-	/*-------- anim on page load ----------------------*/
+	/*-------- anim on page two load ----------------------*/
 		if(getPage.classList.contains('page-two')) {
-			/*---- anim start-------*/
-			tlStartK.play();
-			tlStartCa.play();
-		}
+			/*------ build  animation -------------------------*/
+				tlStartCa
+					.to(ca1, .6, {
+						bezier : {
+							values: startCa1
+						},
+						onStart: function () {
+							formula.classList.add('is-loaded');
+							showText(txt1);
+						}
+					}, '-=.4')
+					.to(ca2, .6, {
+						bezier : {
+							values: startCa2
+						}
+					}, '-=.4')
+					.to(ca4, .6, {
+						bezier : {
+							values: startCa4
+						}
+					}, '-=.4')
+					.to(ca3, .6, {
+						bezier : {
+							values: startCa3
+						}
+					}, '-=.4')
+					.to(ca5, .6, {
+						bezier : {
+							values: startCa5
+						},
+						delay: 0
+					}, '-=.4');
+				tlStartCa.pause();
 
-	/*--------btn1-----------------------*/
-		btn1.addEventListener('click', function () {
-			/*--- detect last animation step ---------*/
-			switch (getActiveBtn()) {
-				case 5:
-					/*---- remove what to do in 5 -----*/
+				tlStartK
+					.to(k1, .6, {
+						bezier : {
+							values: startK1
+						},
+						delay: .9
+					}, '-=.4')
+					.to(k2, .6, {
+						bezier : {
+							values: startK2
+						},
+					}, '-=.4')
+					.to(k3, .6, {
+						bezier : {
+							values: startK3
+						},
+					}, '-=.4')
+					.to(k4, .6, {
+						bezier : {
+							values: startK4
+						},
+					}, '-=.5')
+					.to(k5, .6, {
+						bezier : {
+							values: startK5
+						},
+					}, '-=.5')
+					.to(k6, .6, {
+						bezier : {
+							values: startK6
+						},
+					}, '-=.5');
+					tlStartK.pause();
+
+			/*----------------------*/
+				tl2
+					.to(k4, 1, {
+						bezier: {
+							values: tl2k4
+						},
+						onStart: function () {
+							showText(txt2);
+						},
+						 delay: .5})
+					.to(k5, 1, {
+						bezier: {
+							values: tl2k5
+						},
+						delay: '-= .8'}, '-= 1')
+					.to(k6, 1, {
+						bezier: {
+							values: tl2k6
+						}, delay: '-= .8'}, '-= 1');
+					tl2.pause();
+			/*---------------------------*/
+				tl3
+					.to(ca4, 1.6, {
+						bezier: {
+							values: caMoveIn4
+						},
+						onStart: function () {
+								showText(txt3);
+							}
+					})
+					.to(ca2, 1.6, {
+						bezier: {
+							values: caMoveIn2
+						}
+					}, '-= 1')
+					.to(ca5, 1.6, {
+						bezier: {
+							values: caMoveIn5
+						}
+					}, '-= 1')
+					.to(ca1, 1.6, {
+						bezier: {
+							values: caMoveIn1
+						}
+					}, '-= 1')
+					.to(ca3, 1.6, {
+						bezier: {
+							values: caMoveIn3
+						}
+					}, '-= 1');
+					tl3.pause();
+
+			/*---- anim start-------*/
+				tlStartK.play();
+				tlStartCa.play();
+
+			/*--------btn play-----------------------*/
+				playBtn.addEventListener('click', function () {
+
 					let box = document.querySelector('.stimulant');
 					let getPic = document.querySelector('.forn__pic');
-					let newPic = 'static/img/content/two/formula.png';
+					let newPic = 'static/img/content/two/formula-01.png';
 
-					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-						showElFourEnd[i].classList.remove('is-hidden');
-					}
-					for (let i = showElFive.length - 1; i >= 0; i--) {
-						showElFive[i].classList.add('is-hidden');
-					}
+					sliderBtns = document.getElementsByClassName('slider__btn');
+					playBtn = document.querySelector('.slider__play');
+					btn1 = document.querySelector('.slider_1');
+					btn2 = document.querySelector('.slider_2');
+					btn3 = document.querySelector('.slider_3');
+					btn4 = document.querySelector('.slider_4');
+					btn5 = document.querySelector('.slider_5');
 
-					getPic.setAttribute('src', newPic);
-					box.classList.remove('is-removed');
+					console.log('step ' + getActiveBtn());
 
-				case 4:
-					/*---- remove what to do in 4  ------*/
-					for (let i = showElFour.length - 1; i >= 0; i--) {
-						showElFour[i].classList.add('is-hidden');
-					}
+					switch (getActiveBtn()) {
+						case 5:
+							/*---- remove what to do in 5 -----*/
+							let box = document.querySelector('.stimulant');
+							let getPic = document.querySelector('.forn__pic');
+							let oldPic = 'static/img/content/two/formula.png';
 
-				case 3:
-					/*---- remove what to do in 3  ------*/
-					tl3.reverse().timeScale(10);
-					setTimeout(function () {
-						for (let i = showElThree.length - 1; i >= 0; i--) {
-							showElThree[i].classList.remove('is-hidden');
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.remove('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.add('is-hidden');
+							}
+
+							getPic.setAttribute('src', oldPic);
+							box.classList.remove('is-removed');
+
+						case 4:
+							/*---- remove what to do in 4  ------*/
+							for (let i = showElFour.length - 1; i >= 0; i--) {
+								showElFour[i].classList.add('is-hidden');
+							}
+
+						case 3:
+							/*---- remove what to do in 3  ------*/
+							tl3.reverse().timeScale(10);
+							setTimeout(function () {
+								for (let i = showElThree.length - 1; i >= 0; i--) {
+									showElThree[i].classList.remove('is-hidden');
+								}
+							}, 400);
+
+						case 2:
+							/*---- remove what to do in 2  ------*/
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.add('is-hidden');
+							}
+							tl2.reverse().timeScale(8);
+
+							/*------------*/
+						case 1:
+							formula.classList.remove('is-loaded');
+							tlStartK.restart();
+							tlStartCa.restart();
+							break;
+						default:
+							console.log('// statements_def');
+							break;
 						}
-					}, 400);
 
-				case 2:
-					/*---- remove what to do in 2  ------*/
-					for (let i = showElTwo.length - 1; i >= 0; i--) {
-						showElTwo[i].classList.add('is-hidden');
+						/*---- do 1-st animation----------*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+								sliderBtns[i].classList.remove('is-active');
+						}
+						btn1.classList.add('is-active');
+
+						tlStartK.restart();
+						tlStartCa.restart();
+						/*--------tested-----*/
+						/*---- do 2-d animation----------*/
+						setTimeout(function () {
+							for (let i = sliderBtns.length - 1; i >= 0; i--) {
+									sliderBtns[i].classList.remove('is-active');
+							}
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.remove('is-hidden');
+							}
+							btn2.classList.add('is-active');
+							tl2.restart().timeScale(1);
+						}, 3000);
+
+						/*---- do 3-d animation----------*/
+						setTimeout(function () {
+							for (let i = sliderBtns.length - 1; i >= 0; i--) {
+									sliderBtns[i].classList.remove('is-active');
+							}
+							for (let i = showElThree.length - 1; i >= 0; i--) {
+								showElThree[i].classList.add('is-hidden');
+							}
+							btn3.classList.add('is-active');
+							tl3.restart().timeScale(1);
+						}, 5000);
+						/*---- do 4th animation----------*/
+						setTimeout(function () {
+							for (let i = sliderBtns.length - 1; i >= 0; i--) {
+									sliderBtns[i].classList.remove('is-active');
+							}
+							for (let i = showElFour.length - 1; i >= 0; i--) {
+								showElFour[i].classList.remove('is-hidden');
+							}
+							btn4.classList.add('is-active');
+							showText(txt4);
+						}, 9000);
+						/*---- do 5th animation----------*/
+						setTimeout(function () {
+							for (let i = sliderBtns.length - 1; i >= 0; i--) {
+									sliderBtns[i].classList.remove('is-active');
+							}
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.add('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.remove('is-hidden');
+							}
+							getPic.setAttribute('src', newPic);
+
+							box.classList.add('is-removed');
+							btn5.classList.add('is-active');
+							showText(txt5);
+
+						}, 13000);
+
+
+					/*------ end copy from 5 step ----------------*/
+
+					}, false);
+
+			/*--------btn1-----------------------*/
+				btn1.addEventListener('click', function () {
+					/*--- detect last animation step ---------*/
+					switch (getActiveBtn()) {
+						case 5:
+							/*---- remove what to do in 5 -----*/
+							let box = document.querySelector('.stimulant');
+							let getPic = document.querySelector('.forn__pic');
+							let newPic = 'static/img/content/two/formula.png';
+
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.remove('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.add('is-hidden');
+							}
+
+							getPic.setAttribute('src', newPic);
+							box.classList.remove('is-removed');
+
+						case 4:
+							/*---- remove what to do in 4  ------*/
+							for (let i = showElFour.length - 1; i >= 0; i--) {
+								showElFour[i].classList.add('is-hidden');
+							}
+
+						case 3:
+							/*---- remove what to do in 3  ------*/
+							tl3.reverse().timeScale(10);
+							setTimeout(function () {
+								for (let i = showElThree.length - 1; i >= 0; i--) {
+									showElThree[i].classList.remove('is-hidden');
+								}
+							}, 400);
+
+						case 2:
+							/*---- remove what to do in 2  ------*/
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.add('is-hidden');
+							}
+							tl2.reverse().timeScale(8);
+
+							/*------------*/
+						case 1:
+							formula.classList.remove('is-loaded');
+							tlStartK.restart();
+							tlStartCa.restart();
+							break;
+						default:
+							console.log('// statements_def');
+							break;
 					}
-					tl2.reverse().timeScale(8);
+					/*---- do animation----------*/
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
+					this.classList.add('is-active');
 
-					/*------------*/
-				case 1:
-					formula.classList.remove('is-loaded');
 					tlStartK.restart();
 					tlStartCa.restart();
-					break;
-				default:
-					console.log('// statements_def');
-					break;
-			}
-			/*---- do animation----------*/
-			for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-			}
-			this.classList.add('is-active');
 
-			tlStartK.restart();
-			tlStartCa.restart();
+					}, false);
 
-		}, false);
+			/*-------- btn2 ------------------------*/
+				btn2.addEventListener('click', function () {
+					switch (getActiveBtn()) {
+						case 5:
+							/*---- remove what to do in 5 -----*/
+							let box = document.querySelector('.stimulant');
+							let getPic = document.querySelector('.forn__pic');
+							let newPic = 'static/img/content/two/formula.png';
 
-	/*-------- btn2 ------------------------*/
-		btn2.addEventListener('click', function () {
-			switch (getActiveBtn()) {
-				case 5:
-					/*---- remove what to do in 5 -----*/
-					let box = document.querySelector('.stimulant');
-					let getPic = document.querySelector('.forn__pic');
-					let newPic = 'static/img/content/two/formula.png';
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.remove('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.add('is-hidden');
+							}
 
-					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-						showElFourEnd[i].classList.remove('is-hidden');
-					}
-					for (let i = showElFive.length - 1; i >= 0; i--) {
-						showElFive[i].classList.add('is-hidden');
-					}
+							getPic.setAttribute('src', newPic);
+							box.classList.remove('is-removed');
 
-					getPic.setAttribute('src', newPic);
-					box.classList.remove('is-removed');
+						case 4:
+							/*---- remove what to do in 4  ------*/
+							for (let i = showElFour.length - 1; i >= 0; i--) {
+								showElFour[i].classList.add('is-hidden');
+							}
 
-				case 4:
-					/*---- remove what to do in 4  ------*/
-					for (let i = showElFour.length - 1; i >= 0; i--) {
-						showElFour[i].classList.add('is-hidden');
-					}
+						case 3:
+							/*---- remove what to do in 3  ------*/
+							tl3.reverse().timeScale(10);
+							setTimeout(function () {
+								for (let i = showElThree.length - 1; i >= 0; i--) {
+									showElThree[i].classList.remove('is-hidden');
+								}
+							}, 400);
 
-				case 3:
-					/*---- remove what to do in 3  ------*/
-					tl3.reverse().timeScale(10);
-					setTimeout(function () {
-						for (let i = showElThree.length - 1; i >= 0; i--) {
-							showElThree[i].classList.remove('is-hidden');
-						}
-					}, 400);
-
-				case 2:
-					break;
-					/*------------*/
-				case 1:
-					break;
-				default:
-					console.log('// statements_def');
-					break;
-			}
-
-			for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-			}
-			for (let i = showElTwo.length - 1; i >= 0; i--) {
-				showElTwo[i].classList.remove('is-hidden');
-			}
-			this.classList.add('is-active');
-
-			tl2.restart().timeScale(1);
-		}, false);
-
-	/*-------- btn3 ----------------*/
-		btn3.addEventListener('click', function () {
-			switch (getActiveBtn()) {
-				case 5:
-					/*---- remove what to do in 5 -----*/
-					let box = document.querySelector('.stimulant');
-					let getPic = document.querySelector('.forn__pic');
-					let newPic = 'static/img/content/two/formula.png';
-
-					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-						showElFourEnd[i].classList.remove('is-hidden');
-					}
-					for (let i = showElFive.length - 1; i >= 0; i--) {
-						showElFive[i].classList.add('is-hidden');
+						case 2:
+							break;
+							/*------------*/
+						case 1:
+							break;
+						default:
+							console.log('// statements_def');
+							break;
 					}
 
-					getPic.setAttribute('src', newPic);
-					box.classList.remove('is-removed');
-
-				case 4:
-					/*---- remove what to do in 4  ------*/
-					for (let i = showElFour.length - 1; i >= 0; i--) {
-						showElFour[i].classList.add('is-hidden');
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
 					}
-
-				case 3:
-					/* -- you are here -*/
-
-				case 1:
-					/*---- do step 1 faster ------*/
-					/*---- 1-st step always in start -----*/
-				case 2:
-					/*---- do step 2 faster ------*/
 					for (let i = showElTwo.length - 1; i >= 0; i--) {
 						showElTwo[i].classList.remove('is-hidden');
 					}
 					this.classList.add('is-active');
 
-					tl2.play().timeScale(1);
-					break;
-					/*------------*/
-				default:
-					console.log('// statements_def');
-					break;
-			}
+					tl2.restart().timeScale(1);
+				}, false);
 
-			for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-			}
-			for (let i = showElThree.length - 1; i >= 0; i--) {
-				showElThree[i].classList.add('is-hidden');
-			}
-			this.classList.add('is-active');
-			tl3.restart().timeScale(1);
+			/*-------- btn3 ----------------*/
+				btn3.addEventListener('click', function () {
+					switch (getActiveBtn()) {
+						case 5:
+							/*---- remove what to do in 5 -----*/
+							let box = document.querySelector('.stimulant');
+							let getPic = document.querySelector('.forn__pic');
+							let newPic = 'static/img/content/two/formula.png';
 
-		}, false);
-	/*-------- btn4 ------------------*/
-		btn4.addEventListener('click', function () {
-			switch (getActiveBtn()) {
-				case 5:
-					/*---- remove what to do in 5 -----*/
-					let box = document.querySelector('.stimulant');
-					let getPic = document.querySelector('.forn__pic');
-					let newPic = 'static/img/content/two/formula.png';
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.remove('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.add('is-hidden');
+							}
 
-					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-						showElFourEnd[i].classList.remove('is-hidden');
+							getPic.setAttribute('src', newPic);
+							box.classList.remove('is-removed');
+
+						case 4:
+							/*---- remove what to do in 4  ------*/
+							for (let i = showElFour.length - 1; i >= 0; i--) {
+								showElFour[i].classList.add('is-hidden');
+							}
+
+						case 3:
+							/* -- you are here -*/
+
+						case 1:
+							/*---- do step 1 faster ------*/
+							/*---- 1-st step always in start -----*/
+						case 2:
+							/*---- do step 2 faster ------*/
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.remove('is-hidden');
+							}
+							this.classList.add('is-active');
+
+							tl2.play().timeScale(1);
+							break;
+							/*------------*/
+						default:
+							console.log('// statements_def');
+							break;
 					}
-					for (let i = showElFive.length - 1; i >= 0; i--) {
-						showElFive[i].classList.add('is-hidden');
+
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
 					}
-
-					getPic.setAttribute('src', newPic);
-					box.classList.remove('is-removed');
-
-					for (let i = showElFourStart.length - 1; i >= 0; i--) {
-						showElFourStart[i].classList.add('is-timer');
-						setTimeout(function () {
-							showElFourStart[i].classList.remove('is-timer');
-						}, 2000);
-					}
-
-				case 4:
-					/* -- you are here -*/
-
-				case 1:
-					/*---- do step 1 faster ------*/
-					/*---- 1-st step always in start -----*/
-				case 2:
-					/*---- do step 2 faster ------*/
-					for (let i = showElTwo.length - 1; i >= 0; i--) {
-						showElTwo[i].classList.remove('is-hidden');
-					}
-					this.classList.add('is-active');
-
-					tl2.play().timeScale(4);
-					/*------------*/
-				case 3:
-					/*---- do step 2 faster ------*/
 					for (let i = showElThree.length - 1; i >= 0; i--) {
 						showElThree[i].classList.add('is-hidden');
 					}
 					this.classList.add('is-active');
-					tl3.play().timeScale(4);
-				default:
-					console.log('// statements_def');
-					break;
-			}
-			/*-restart old anim-*/
-			for (let i = showElFour.length - 1; i >= 0; i--) {
-				showElFour[i].classList.add('is-hidden');
-			}
+					tl3.restart().timeScale(1);
 
-			/*-start new anim*/
-			for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-			}
-			for (let i = showElFour.length - 1; i >= 0; i--) {
-				showElFour[i].classList.remove('is-hidden');
-			}
-			this.classList.add('is-active');
-			showText(txt4);
+				}, false);
+			/*-------- btn4 ------------------*/
+				btn4.addEventListener('click', function () {
+					switch (getActiveBtn()) {
+						case 5:
+							/*---- remove what to do in 5 -----*/
+							let box = document.querySelector('.stimulant');
+							let getPic = document.querySelector('.forn__pic');
+							let newPic = 'static/img/content/two/formula.png';
 
-		}, false);
-	/*--------- btn5 -----------------*/
-		btn5.addEventListener('click', function () {
-			switch (getActiveBtn()) {
-				case 5:
-					/* -- you are here -*/
-				case 1:
-					/*---- 1-st step always in start -----*/
-				case 2:
-					/*---- do step 2 faster ------*/
-					for (let i = showElTwo.length - 1; i >= 0; i--) {
-						showElTwo[i].classList.remove('is-hidden');
+							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+								showElFourEnd[i].classList.remove('is-hidden');
+							}
+							for (let i = showElFive.length - 1; i >= 0; i--) {
+								showElFive[i].classList.add('is-hidden');
+							}
+
+							getPic.setAttribute('src', newPic);
+							box.classList.remove('is-removed');
+
+							for (let i = showElFourStart.length - 1; i >= 0; i--) {
+								showElFourStart[i].classList.add('is-timer');
+								setTimeout(function () {
+									showElFourStart[i].classList.remove('is-timer');
+								}, 2000);
+							}
+
+						case 4:
+							/* -- you are here -*/
+
+						case 1:
+							/*---- do step 1 faster ------*/
+							/*---- 1-st step always in start -----*/
+						case 2:
+							/*---- do step 2 faster ------*/
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.remove('is-hidden');
+							}
+							this.classList.add('is-active');
+
+							tl2.play().timeScale(4);
+							/*------------*/
+						case 3:
+							/*---- do step 2 faster ------*/
+							for (let i = showElThree.length - 1; i >= 0; i--) {
+								showElThree[i].classList.add('is-hidden');
+							}
+							this.classList.add('is-active');
+							tl3.play().timeScale(4);
+						default:
+							console.log('// statements_def');
+							break;
 					}
-					this.classList.add('is-active');/*-?-*/
-					tl2.play().timeScale(4);
-
-				case 3:
-					/*---- do step 3 faster ------*/
-					for (let i = showElThree.length - 1; i >= 0; i--) {
-						showElThree[i].classList.add('is-hidden');
+					/*-restart old anim-*/
+					for (let i = showElFour.length - 1; i >= 0; i--) {
+						showElFour[i].classList.add('is-hidden');
 					}
-					this.classList.add('is-active');/*-?-*/
-					tl3.play().timeScale(4);
-				case 4:
-					/*---- do step 4 faster ------*/
+
+					/*-start new anim*/
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
 					for (let i = showElFour.length - 1; i >= 0; i--) {
 						showElFour[i].classList.remove('is-hidden');
 					}
-					this.classList.add('is-active');/*-?-*/
-				default:
-					console.log('// statements_def');
-					break;
-			}
+					this.classList.add('is-active');
+					showText(txt4);
 
-			let box = document.querySelector('.stimulant');
-			let getPic = document.querySelector('.forn__pic');
-			let oldPic = 'static/img/content/two/formula.png';
-			let newPic = 'static/img/content/two/formula-01.png';
-			/*-restart 4 pos */
-			for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-				showElFourEnd[i].classList.remove('is-hidden');
-			}
-			for (let i = showElFive.length - 1; i >= 0; i--) {
-				showElFive[i].classList.add('is-hidden');
-			}
-			getPic.setAttribute('src', oldPic);
+				}, false);
+			/*--------- btn5 -----------------*/
+			btn5.addEventListener('click', function () {
+				switch (getActiveBtn()) {
+					case 5:
+						/* -- you are here -*/
+					case 1:
+						/*---- 1-st step always in start -----*/
+					case 2:
+						/*---- do step 2 faster ------*/
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.remove('is-hidden');
+						}
+						btn2.classList.add('is-active');/*-?-*/
+						tl2.play().timeScale(4);
 
-			box.classList.remove('is-removed');
-			/*-set new pos*/
+					case 3:
+						/*---- do step 3 faster ------*/
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.add('is-hidden');
+						}
+						btn3.classList.add('is-active');/*-?-*/
+						tl3.play().timeScale(4);
+					case 4:
+						/*---- do step 4 faster ------*/
+						for (let i = showElFour.length - 1; i >= 0; i--) {
+							showElFour[i].classList.remove('is-hidden');
+						}
+						btn4.classList.add('is-active');/*-?-*/
+					default:
+						console.log('// statements_def');
+						break;
+				}
 
-			for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-			}
-			for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-				showElFourEnd[i].classList.add('is-hidden');
-			}
-			for (let i = showElFive.length - 1; i >= 0; i--) {
-				showElFive[i].classList.remove('is-hidden');
-			}
-			getPic.setAttribute('src', newPic);
+				let box = document.querySelector('.stimulant');
+				let getPic = document.querySelector('.forn__pic');
+				let oldPic = 'static/img/content/two/formula.png';
+				let newPic = 'static/img/content/two/formula-01.png';
+				/*-restart 4 pos */
+				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+					showElFourEnd[i].classList.remove('is-hidden');
+				}
+				for (let i = showElFive.length - 1; i >= 0; i--) {
+					showElFive[i].classList.add('is-hidden');
+				}
+				getPic.setAttribute('src', oldPic);
 
-			box.classList.add('is-removed');
-			this.classList.add('is-active');
-			showText(txt5);
+				box.classList.remove('is-removed');
+				/*-set new pos*/
+
+				for (let i = sliderBtns.length - 1; i >= 0; i--) {
+						sliderBtns[i].classList.remove('is-active');
+				}
+				for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+					showElFourEnd[i].classList.add('is-hidden');
+				}
+				for (let i = showElFive.length - 1; i >= 0; i--) {
+					showElFive[i].classList.remove('is-hidden');
+				}
+				getPic.setAttribute('src', newPic);
+
+				box.classList.add('is-removed');
+				this.classList.add('is-active');
+				showText(txt5);
+				}, false);
 
 
-			// getActiveBtn();
-
-
-		}, false);
-
+		}
 	// --------------------------------------------------------
 	// --- page three  --------------------
 
@@ -740,7 +877,7 @@
 		let yo19 = document.querySelector('.yo-19');
 		let yo20 = document.querySelector('.yo-20');
 		/*----------------------------------------------------*/
-		if(getPage.classList.contains('page-thre')) {
+		if(getPage.classList.contains('page-three')) {
 			/* - btn1 click - */
 				btn1.addEventListener('click', function () {
 					if(btn3.classList.contains('is-active') ){
@@ -989,13 +1126,15 @@
 			return num;
 		}
 
+
 		function showText(arg) {
-			let delActive = document.getElementsByClassName('explan');
-			for (var i = delActive.length - 1; i >= 0; i--) {
-				delActive[i].classList.remove('is-active');
+			if(arg) {
+				for (var i = delActive.length - 1; i >= 0; i--) {
+					delActive[i].classList.remove('is-active');
+				}
+				arg.classList.add('is-active');
 			}
-			arg.classList.add('is-active');
-			// console.log(el);
+			return false;
 		}
 
 

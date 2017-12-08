@@ -9,6 +9,13 @@
 	display: inline-block;
 	@include bg($icon-close-red);
 }
+.icon-full {
+	position: absolute;
+	top: 30px;
+	left: 100px;
+	display: inline-block;
+	@include bg($icon-full);
+}
 .yo {
 	display: inline-block;
 	@include bg($yo);

@@ -8,67 +8,66 @@
 	<body class="page">
 		%=symbols=%
 
-		<section class="page__wrapper">
-			<h3 class="page__title">Глимепирид обладает уникальным двойным механизмом действия<sup>1</sup></h3>
+		<div class="page__wrapper">
+			<i class="icon-full"></i>
+			<div class="layout">
+				<h3 class="page__title">Глимепирид обладает уникальным двойным механизмом действия<sup>1</sup></h3>
 
-			<div class="diagramm">
-				<h4 class="diagramm__title">Механизм действия препарата глимепирид</h4>
-				<div class="diagramm__wrap">
-					<div class="picture">
-						<div class="picture__shadow">
-							<div class="picture__curtain"></div>
+				<div class="diagramm">
+					<h4 class="diagramm__title">Механизм действия препарата глимепирид</h4>
+					<div class="diagramm__wrap">
+						<div class="picture">
+							<div class="picture__shadow">
+								<div class="picture__curtain"></div>
+							</div>
+							<div class="picture__fog">
+								<img class="picture__img picture_end" src="static/img/content/slid-13.png" alt="pic">
+							</div>
+							<img class="picture__img picture_off is-active" src="static/img/content/slid-11.png" alt="pic">
+							<img class="picture__img picture_on" src="static/img/content/slid-12.png" alt="pic">
 						</div>
-						<div class="picture__fog">
-							<img class="picture__img picture_end" src="static/img/content/slid-13.png" alt="pic">
-						</div>
-						<img class="picture__img picture_off is-active" src="static/img/content/slid-11.png" alt="pic">
-						<img class="picture__img picture_on" src="static/img/content/slid-12.png" alt="pic">
-					</div>
-					<div class="diagramm__toggler">
-						<div class="toggler" tabindex="0">
-							<a class="toggler__checkbox" href="#" tabindex="0"></a>
-							<a class="toggler__btn" href="#"></a>
-							<div class="toggler__text">
-								<p class="toggler__desc toggler_off is-active">Без терапии</p>
-								<p class="toggler__desc toggler_on">Терапия глимепиридом</p>
+						<div class="diagramm__toggler">
+							<div class="toggler" tabindex="0">
+								<a class="toggler__checkbox" href="#" tabindex="0"></a>
+								<a class="toggler__btn" href="#"></a>
+								<div class="toggler__text">
+									<p class="toggler__desc toggler_off is-active">Без терапии</p>
+									<p class="toggler__desc toggler_on">Терапия глимепиридом</p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="rubric">
+					<div class="rubric__row">
+						<div class="rubric__pic">
+							<img class="rubric__img" src="static/img/content/blood-test.svg" alt="picture">
+						</div>
+						<p class="rubric__desc">Глимепирид — единственный препарат сульфонилмочевины, воздействующий на два механизма повышения уровня сахара крови при сахарном диабете 2 типа. Препарат стимулирует секрецию инсулина и снижает инсулинорезистентность<sup>1, 2, 3</sup>;</p>
+					</div>
+					<div class="rubric__row">
+						<div class="rubric__pic">
+							<img class="rubric__img" src="static/img/content/arrow.svg" alt="picture">
+						</div>
+						<p class="rubric__desc">За счет двойного механизма действия глимепирид обеспечивает сахароснижающий эффект<sup>3</sup>. Глимепирид демонстрирует низкий риск развития гипогликемии в условиях реальной клинической практики в России<sup>4,5,6</sup>;</p>
+					</div>
+					<div class="rubric__row">
+						<div class="rubric__pic">
+							<img class="rubric__img" src="static/img/content/cell.svg" alt="picture">
+						</div>
+						<p class="rubric__desc">Глимепирид бережно воздействует на бета-клетки, защищая их от преждевременного истощения<sup>1,2</sup>.</p>
+					</div>
+				</div>
+
+				<section class="literature">
+					<h4 class="page__title mod-left">Литература</h4>
+					{{> literature/literature literature.first}}
+
+					<p class="literature__desc">SARU.GLI.17.10.1861.</p>
+				</section>
 			</div>
-			<div class="rubric">
-				<div class="rubric__row">
-					<div class="rubric__pic">
-						<img class="rubric__img" src="static/img/content/blood-test.svg" alt="picture">
-					</div>
-					<p class="rubric__desc">Глимепирид — единственный препарат сульфонилмочевины, воздействующий на два механизма повышения уровня сахара крови при сахарном диабете 2 типа. Препарат стимулирует секрецию инсулина и снижает инсулинорезистентность<sup>1, 2, 3</sup>;</p>
-				</div>
-				<div class="rubric__row">
-					<div class="rubric__pic">
-						<img class="rubric__img" src="static/img/content/arrow.svg" alt="picture">
-					</div>
-					<p class="rubric__desc">За счет двойного механизма действия глимепирид обеспечивает сахароснижающий эффект<sup>3</sup>. Глимепирид демонстрирует низкий риск развития гипогликемии в условиях реальной клинической практики в России<sup>4,5,6</sup>;</p>
-				</div>
-				<div class="rubric__row">
-					<div class="rubric__pic">
-						<img class="rubric__img" src="static/img/content/cell.svg" alt="picture">
-					</div>
-					<p class="rubric__desc">Глимепирид бережно воздействует на бета-клетки, защищая их от преждевременного истощения<sup>1,2</sup>.</p>
-				</div>
-			</div>
+		</div>
 
-			<section class="literature">
-				<h4 class="page__title mod-left">Литература</h4>
-				{{> literature/literature literature.first}}
-
-				<p class="literature__desc">SARU.GLI.17.10.1861.</p>
-			</section>
-		</section>
-<!--
-		<script src="static/js/separate-js/svg4everybody.min.js"></script>
-		<script>svg4everybody();</script> -->
-
-		<!-- Main scripts. You can replace it, but I recommend you to leave it here     -->
 		<script src="static/js/main%=hash=%%=min=%.js"></script>
 	</body>
 
