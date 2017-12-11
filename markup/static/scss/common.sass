@@ -793,24 +793,29 @@ p
 		width: 12px
 		background-image: url('../img/content/three/door-left.png')
 		transform: rotate(180deg)
+	+r(920)
+		max-width: 30px
+
 	&-1
 		top: 41%
 		left: 31%
 		+rotate(-40)
-		+r(900)
+		+r(920)
 			top: 37%
 			left: 29%
 			&:before,
 				+scale(.8)
 			&:after
 				transform: scale(.8) rotate(180deg)
-		// +r(850)
-		// 	top: 37%
-		// 	left: 29%
-		// 	&:before,
-		// 		+scale(.6)
-		// 	&:after
-		// 		transform: scale(.6) rotate(180deg)
+		+r(750)
+			top: 37%
+			left: 29%
+			&:before
+				left: -10px
+				+scale(.6)
+			&:after
+				right: -10px
+				transform: scale(.6) rotate(180deg)
 		&.is-hidden
 			top: 44%
 			left: 31%
@@ -818,18 +823,19 @@ p
 		top: 43%
 		left: 80%
 		+rotate(53)
-		+r(900)
-			&:before,
+		+r(920)
+			&:before
+				left: -10px
 				+scale(.8)
 			&:after
+				right: -10px
 				transform: scale(.8) rotate(180deg)
-		// +r(850)
-		// 	// top: 37%
-		// 	// left: 29%
-		// 	&:before,
-		// 		+scale(.6)
-		// 	&:after
-		// 		transform: scale(.6) rotate(180deg)
+		+r(750)
+			top: 38%
+			&:before,
+				+scale(.6)
+			&:after
+				transform: scale(.6) rotate(180deg)
 		&.is-hidden
 			top: 42%
 			left: 81%
@@ -1135,10 +1141,12 @@ p
 	.slick-next
 		right: -60px
 .nav__item
+	position: relative
 	height: 84px
 	border-top: 4px solid $n
 	background-color: #F1F1F1
 	cursor: pointer
+
 .slick-current
 	.nav__item
 		border-top: 4px solid #525CA3

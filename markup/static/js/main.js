@@ -163,6 +163,13 @@ $(document).ready(function () {
 	let k6 = document.querySelector('.k-6');
 
 
+	// $('.slider__btn').on('click', function () {
+	// 	var red = $(this).parents('.layout').addClass('2222222222222').find('.slider__btn').each(function () {
+	// 		$(this).removeClass('is-active');
+	// 	});
+	// 	$(this).addClass('is-active');
+	// });
+
 /*------- anim options  ----------------------*/
 	/*--- bnt1 anim options---*/
 		let startCa1 = [
