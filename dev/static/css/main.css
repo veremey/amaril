@@ -1795,6 +1795,8 @@ p {
   border: 4px solid #EDEEF1;
   cursor: pointer;
   background-color: #F7F8FF;
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
 }
 
 .slider__play:after {
