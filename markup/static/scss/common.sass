@@ -114,6 +114,22 @@ p
 	&__wrap
 		display: flex
 		align-items: center
+		&.flex-text
+			.desc_green
+				+r(900)
+					font-size: get-vw(28px)
+				+r(780)
+					left: 20%
+				+r(690)
+					width: 100px
+			.desc_gray
+				+r(900)
+					font-size: get-vw(28px)
+			.desc_blue
+				top: 4%
+			.explan__desc
+				+r(900)
+					font-size: get-vw(36px)
 	&__pack
 		display: flex
 		align-items: center
@@ -527,6 +543,8 @@ p
 .forn
 	position: relative
 	display: block
+	// display: flex
+	// flex: 0 0 100%
 	width: 60vw
 	max-width: 600px
 	height: calc(60vw * (265/600))
@@ -536,9 +554,6 @@ p
 	+r(950)
 		width: 70vw
 		height: calc(70vw * (265/600))
-
-	&.mod-bottom
-		margin-bottom: 87px
 	&__pic
 		position: absolute
 		top: 20px
@@ -555,18 +570,25 @@ p
 			+tr(1s)
 	.desc_green
 		position: absolute
-		top: 15px
+		top: 10%
 		left: 26%
 		width: 116px
 		// +trx(-110%)
 		text-align: right
 		font-size: 18px
-		line-height: 20px
+		line-height: 1.1111
 		color: #13942C
 		+lr
+
 		&.mod-pos-2
-			top: 14px
+			top: 5%
 			left: 46.5%
+			+r(900)
+				left: 45.5%
+			+r(760)
+				left: 43.5%
+				&:after
+					+scale(.8)
 			&:after
 				content: ''
 				position: absolute
@@ -626,12 +648,14 @@ p
 			top: 70px
 			opacity: 1
 			+tr(1s)
+	&.mod-bottom
+		margin-bottom: 87px
 
 .slider
 	position: relative
 	display: flex
 	align-items: center
-	width: 460px
+	width: 355px
 	margin: 0 auto
 	position: relative
 	text-align: left
@@ -708,21 +732,22 @@ p
 				font-size: 24px
 				line-height: 44px
 				// margin-left: 84px
-	&_1
-		left: 30%
-	&_2
-		left: 50%
+	&_31
+		left: 21%
+	&_32
+		left: 54%
+	&_33
+		left: 90%
 
 	&__scale
 		position: relative
 		width: 360px
 		margin: 0 auto
-		transform: translate(2%, -36px)
+		transform: translate(0, -36px)
 		height: 16px
 		background: $n url('../img/content/three/scale.png') 0 100% no-repeat
 		z-index: 2
 		&.scale-2
-			transform: translate(0, -36px)
 			width: 647px
 			max-width: 87%
 			background: $n url('../img/content/two/scale.png') 0 100% no-repeat
@@ -749,7 +774,7 @@ p
 	max-width: 40px
 	width: 40px
 	transform-origin: 50% 50%
-	transition: opacity .3s .5s, width .5s ease-in .8s, top .4s, left .4s
+	transition: opacity .3s 1s, width .5s ease-in 1.3s, top .4s, left .4s
 	&:before
 		content: ''
 		position: absolute
@@ -771,6 +796,20 @@ p
 		top: 41%
 		left: 31%
 		+rotate(-40)
+		+r(900)
+			top: 37%
+			left: 29%
+			&:before,
+				+scale(.8)
+			&:after
+				transform: scale(.8) rotate(180deg)
+		// +r(850)
+		// 	top: 37%
+		// 	left: 29%
+		// 	&:before,
+		// 		+scale(.6)
+		// 	&:after
+		// 		transform: scale(.6) rotate(180deg)
 		&.is-hidden
 			top: 44%
 			left: 31%
@@ -778,6 +817,18 @@ p
 		top: 43%
 		left: 80%
 		+rotate(53)
+		+r(900)
+			&:before,
+				+scale(.8)
+			&:after
+				transform: scale(.8) rotate(180deg)
+		// +r(850)
+		// 	// top: 37%
+		// 	// left: 29%
+		// 	&:before,
+		// 		+scale(.6)
+		// 	&:after
+		// 		transform: scale(.6) rotate(180deg)
 		&.is-hidden
 			top: 42%
 			left: 81%
@@ -893,6 +944,10 @@ p
 	display: inline-block
 	width: 200px
 	margin-left: 50px
+	&_wide
+		width: 300px
+		+r(850)
+			width: 200px
 
 .explan
 	display: none
@@ -1053,3 +1108,37 @@ p
 	margin-bottom: 1em
 	+lr
 	font-style: italic
+
+
+/*------------ slick slider ---------------------*/
+.page-preview
+	border-bottom: 2px solid #E1E1E1
+	.layout
+		padding: 25px 0
+
+.slider__nav
+	.slick-slide
+		margin-right: 4px
+		outline: none
+	.slick-arrow
+		position: absolute
+		top: 50%
+		width: 12px
+		height: 22px
+		background-color: $n
+		border: none
+		font-size: 0
+		outline: none
+	.slick-prev
+		left: -60px
+	.slick-next
+		right: -60px
+.nav__item
+	height: 84px
+	border-top: 4px solid $n
+	background-color: #F1F1F1
+	cursor: pointer
+.slick-current
+	.nav__item
+		border-top: 4px solid #525CA3
+

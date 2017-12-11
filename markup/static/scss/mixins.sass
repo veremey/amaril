@@ -14,6 +14,15 @@
     @media only screen and (max-height: $height + "px")
         @content
 
+@function get-vh($target)
+    $vh-context: (1000*.008) * 1px
+    @return ($target/$vh-context) * 1vh
+
+@function get-vw($target)
+    $vw-context: (1000*.018) * 1px
+    @return ($target/$vw-context) * 1vw
+
+
 =clr
     &:after
         content: " "

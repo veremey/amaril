@@ -15,6 +15,10 @@
 	left: 100px;
 	display: inline-block;
 	@include bg($icon-full);
+	@media only screen and (max-width: 1200px) {
+		top: 0;
+		left: 5%;
+	}
 }
 .yo {
 	display: inline-block;
@@ -117,38 +121,26 @@
 	}
 	// transition: opacity .3s;
 	&-1 {
-		// top: 0;
-		// left: 0;
 		top: -20%;
 		left: -20%;
 	}
 	&-2 {
-		// top: 16%;
-		// left: 3%;
 		top: -20%;
 		left: -20%;
 	}
 	&-3 {
-		// top: 0;
-		// left: 10%;
 		top: -20%;
 		left: -20%;
 	}
 	&-4 {
-		// top: 0;
-		// left: 10%;
 		top: -20%;
 		left: -20%;
 	}
 	&-5 {
-		// top: 0;
-		// left: -10%;
 		top: -20%;
 		left: -20%;
 	}
 	&-6 {
-		// top: 0;
-		// left: 0%;
 		top: -20%;
 		left: -20%;
 	}
@@ -237,4 +229,20 @@
 		left: 65px;
 		transform: rotate(-20deg);
 	}
+}
+
+.slick-next {
+	display: inline-block;
+	width: 12px;
+	height: 28px;
+	@include bg($arrow-r);
+	transform: translateY(-50%);
+}
+.slick-prev {
+	display: inline-block;
+	width: 12px;
+	height: 28px;
+	@include bg($arrow-r);
+	transform: translateY(-50%) rotate(180deg);
+	transform-origin: 50% 50%;
 }

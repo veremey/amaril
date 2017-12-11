@@ -1,7 +1,7 @@
 'head': {
     defaults: {
-        title: 'default title',
-        useSocialMetaTags: true
+        title: 'amaril',
+        useSocialMetaTags: false
     }
 },
 
@@ -75,6 +75,12 @@ __pages: [{
              },{
                 name: 'index',
                 href: 'index.html'
+             },{
+                name: 'page-list',
+                href: 'page-list.html'
+             },{
+                name: 'slider',
+                href: 'slider.html'
              },{
                 name: 'three',
                 href: 'three.html'

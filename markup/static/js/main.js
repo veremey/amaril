@@ -3,8 +3,28 @@
 const $ = require('jquery');
 const gsap = require('gsap');
 const TimelineMax = gsap.TimelineMax;
+const slick = require('slick-carousel');
+
+
 // ---------------------------------------------------------
 $(document).ready(function () {
+
+	$('.slider__for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+		asNavFor: '.slider__nav'
+	});
+	$('.slider__nav').slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		asNavFor: '.slider__for',
+		arrows: true,
+		dots: false,
+		centerMode: false,
+		focusOnSelect: true
+	});
 
 	var on = true;
 	var off = false;
@@ -89,9 +109,11 @@ $(document).ready(function () {
 		.to(secondTwo, .8, {y: -secondTwoHeigth})
 		.to(thirdOne, .8, {y: -thirdOneHeigth})
 		.to(thirdTwo, .8, {y: -thirdTwoHeigth});
+
 /*-----------variables page two ----------------------------*/
 
 	let getPage = document.querySelector('.page');
+	let sliderItem = document.getElementsByClassName('slider__item');
 	let tlStartCa = new TimelineMax();
 	let tlStartK = new TimelineMax();
 	let tl2 = new TimelineMax();
@@ -100,13 +122,21 @@ $(document).ready(function () {
 	let delActive = document.getElementsByClassName('explan');
 
 	let sliderBtns = document.getElementsByClassName('slider__btn');
+	// let $this;
+	// let sliderBtns = $this.parents('.layout').find('.slider__btn');
 	let playBtn = document.querySelector('.slider__play');
+	let btn31 = document.querySelector('.slider_31');
+	let btn32 = document.querySelector('.slider_32');
+	let btn33 = document.querySelector('.slider_33');
 	let btn1 = document.querySelector('.slider_1');
 	let btn2 = document.querySelector('.slider_2');
 	let btn3 = document.querySelector('.slider_3');
 	let btn4 = document.querySelector('.slider_4');
 	let btn5 = document.querySelector('.slider_5');
 
+	const txt31 = document.querySelector('.explan-31');
+	const txt32 = document.querySelector('.explan-32');
+	const txt33 = document.querySelector('.explan-33');
 	const txt1 = document.querySelector('.explan-1');
 	const txt2 = document.querySelector('.explan-2');
 	const txt3 = document.querySelector('.explan-3');
@@ -132,10 +162,6 @@ $(document).ready(function () {
 	let k5 = document.querySelector('.k-5');
 	let k6 = document.querySelector('.k-6');
 
-	// let box = document.querySelector('.stimulant');
-	// let getPic = document.querySelector('.forn__pic');
-	// let oldPic = 'static/img/content/two/formula.png';
-	// let newPic = 'static/img/content/two/formula-01.png';
 
 /*------- anim options  ----------------------*/
 	/*--- bnt1 anim options---*/
@@ -193,7 +219,7 @@ $(document).ready(function () {
 				{top: '0%', left: '10%'},
 				{top: '26%', left: '10%'}
 			];
-	/*------ btn2 click options---------------*/
+	/*------ btn2 options---------------*/
 		let tl2k4 = [
 				{top: '42%', left: '4%'},
 				{top: '43%', left: '6%'},
@@ -210,8 +236,7 @@ $(document).ready(function () {
 				{top: '45%', left: '11%'},
 				{top: '33%', left: '11%'}
 			];
-	/*-------  btn3 click options- -----------*/
-
+	/*-------  btn3 options- -----------*/
 		let caMoveIn1 = [
 			{top: '22%', left: '96%'}, /*-4-*/
 			{top: '41%', left: '84%'},
@@ -244,6 +269,7 @@ $(document).ready(function () {
 
 /*-------- anim on page two load ----------------------*/
 	if(getPage.classList.contains('page-two')) {
+
 		/*------ build  animation -------------------------*/
 			tlStartCa
 				.to(ca1, .6, {
@@ -310,9 +336,9 @@ $(document).ready(function () {
 						values: startK6
 					},
 				}, '-=.5');
-				tlStartK.pause();
+			tlStartK.pause();
 
-		/*----------------------*/
+		/*----- btn2 build  animation------------*/
 			tl2
 				.to(k4, 1, {
 					bezier: {
@@ -331,8 +357,9 @@ $(document).ready(function () {
 					bezier: {
 						values: tl2k6
 					}, delay: '-= .8'}, '-= 1');
-				tl2.pause();
-		/*---------------------------*/
+			tl2.pause();
+
+		/*----- btn3 build  animation------------*/
 			tl3
 				.to(ca4, 1.6, {
 					bezier: {
@@ -362,7 +389,7 @@ $(document).ready(function () {
 						values: caMoveIn3
 					}
 				}, '-= 1');
-				tl3.pause();
+			tl3.pause();
 
 		/*---- anim start-------*/
 			tlStartK.play();
@@ -382,8 +409,6 @@ $(document).ready(function () {
 				btn3 = document.querySelector('.slider_3');
 				btn4 = document.querySelector('.slider_4');
 				btn5 = document.querySelector('.slider_5');
-
-				console.log('step ' + getActiveBtn());
 
 				switch (getActiveBtn()) {
 					case 5:
@@ -496,7 +521,6 @@ $(document).ready(function () {
 						showText(txt5);
 
 					}, 13000);
-
 
 				/*------ end copy from 5 step ----------------*/
 
@@ -674,8 +698,8 @@ $(document).ready(function () {
 				}
 				this.classList.add('is-active');
 				tl3.restart().timeScale(1);
-
 			}, false);
+
 		/*-------- btn4 ------------------*/
 			btn4.addEventListener('click', function () {
 				switch (getActiveBtn()) {
@@ -742,8 +766,8 @@ $(document).ready(function () {
 				}
 				this.classList.add('is-active');
 				showText(txt4);
-
 			}, false);
+
 		/*--------- btn5 -----------------*/
 		btn5.addEventListener('click', function () {
 			switch (getActiveBtn()) {
@@ -809,14 +833,13 @@ $(document).ready(function () {
 			showText(txt5);
 			}, false);
 
-
 	}
 // --------------------------------------------------------
 // --- page three  --------------------
 
 	let tm = new TimelineMax();
 
-	let btnPlayTwo = document.querySelector('.play-page-two');
+	let btnPlayThree = document.querySelector('.play-page-three');
 
 	let yo9 = document.querySelector('.yo-9');
 	let yo10 = document.querySelector('.yo-10');
@@ -830,92 +853,7 @@ $(document).ready(function () {
 	let yo18 = document.querySelector('.yo-18');
 	let yo19 = document.querySelector('.yo-19');
 	let yo20 = document.querySelector('.yo-20');
-	/*----------------------------------------------------*/
-	if(getPage.classList.contains('page-three')) {
-		/* - btn1 click - */
-			btn1.addEventListener('click', function () {
-				if(btn3.classList.contains('is-active') ){
-					btn3.classList.remove('is-active');
-					this.classList.add('is-active');
-					removeThree();
-					setTimeout( removeTwo, 1500);
-				} else {
-					for (let i = sliderBtns.length - 1; i >= 0; i--) {
-						sliderBtns[i].classList.remove('is-active');
-					}
-					this.classList.add('is-active');
-					removeThree();
-					removeTwo();
-				}
-			}, false);
-		/* -- btn2 click -- */
-			btn2.addEventListener('click', function () {
-				if(btn3.classList.contains('is-active') ){
-					btn3.classList.remove('is-active');
-					this.classList.add('is-active');
-					removeThree();
-					setTimeout( animateTwo, 1500);
-				} else {
-					for (let i = sliderBtns.length - 1; i >= 0; i--) {
-						sliderBtns[i].classList.remove('is-active');
-					}
-					this.classList.add('is-active');
-					removeThree();
-					animateTwo();
-				}
-			}, false);
-		/* -- btn3 click -- */
-			btn3.addEventListener('click', function () {
-				for (let i = sliderBtns.length - 1; i >= 0; i--) {
-					sliderBtns[i].classList.remove('is-active');
-				}
-				animateTwo();
-				btn3.classList.add('is-active');
-				setTimeout( function () {
-					animateThree();
-				}, 1500);
 
-			}, false);
-		/* -- playBtn click -- */
-			btnPlayTwo.addEventListener('click', function () {
-				if(btn3.classList.contains('is-active') ){
-					/* back to 2-d position */
-					btn3.classList.remove('is-active');
-					removeThree();
-					btn2.classList.add('is-active');
-					/* back to 1 position */
-					setTimeout( function () {
-						removeTwo();
-						btn2.classList.remove('is-active');
-						btn1.classList.add('is-active');
-					}, 1500);
-					/* go to 2 position */
-					setTimeout( function () {
-						btn1.classList.remove('is-active');
-						btn2.classList.add('is-active');
-						animateTwo();
-					}, 3000)
-					/* go to 3 position */
-					setTimeout( function () {
-						btn2.classList.remove('is-active');
-						btn3.classList.add('is-active');
-						animateThree();
-					}, 4500);
-				} else {
-					for (let i = sliderBtns.length - 1; i >= 0; i--) {
-						sliderBtns[i].classList.remove('is-active');
-					}
-					btn2.classList.add('is-active');
-					removeThree();
-					animateTwo();
-					setTimeout( function () {
-						btn2.classList.remove('is-active');
-						btn3.classList.add('is-active');
-						animateThree();
-					}, 1500);
-				}
-			}, false);
-	};
 	/* -------------animate options ------------------------- */
 		/*----- options -------*/
 			let tlYo9 = [
@@ -977,97 +915,244 @@ $(document).ready(function () {
 				{top: '59%', left: '73%'},
 				{top: '46%', left: '63%'}
 			];
-	/*  ------ anim  --------------- */
-		let mainClass = document.querySelector('.page__wrapper');
-		if(mainClass.classList.contains('page-three')) {
-			tm
-				.to(yo9, 2.6, {
-					bezier : {
-						values: tlYo9
-					}
-				}, '-=2')
-				.to(yo10, 2.6, {
-					bezier : {
-						values: tlYo10
-					}
-				}, '-=2.5')
-				.to(yo11, 2.6, {
-					bezier : {
-						values: tlYo11
-					}
-				}, '-=2.6')
-				.to(yo12, 2.6, {
-					bezier : {
-						values: tlYo12
-					}
-				}, '-=2.6')
-				.to(yo13, 2.6, {
-					bezier : {
-						values: tlYo13
-					}
-				}, '-=2.6')
-				.to(yo14, 2.6, {
-					bezier : {
-						values: tlYo14
-					}
-				}, '-=2.6')
-				.to(yo16, 2.6, {
-					bezier : {
-						values: tlYo16
-					}
-				}, '-=2.6')
-				.to(yo17, 2.6, {
-					bezier : {
-						values: tlYo17
-					}
-				}, '-=2.6')
-				.to(yo18, 2.6, {
-					bezier : {
-						values: tlYo18
-					}
-				}, '-=2.6')
-				.to(yo19, 2.6, {
-					bezier : {
-						values: tlYo19
-					}
-				}, '-=2.6');
 
-			tm.reverse();
-		}
+	/*----------------------------------------------------*/
+	// if(getPage.classList.contains('page-three')) {
 
-/*------------ functions  -----------------------*/
-	function animateTwo() {
-		let i = showElTwo.length;
-		for (i = showElTwo.length - 1; i >= 0; i--) {
-			showElTwo[i].classList.remove('is-hidden');
-		}
-	}
+		tm
+			.to(yo9, .6, {
+				bezier : {
+					values: tlYo9
+				},
+				onStart: function () {
+					for (let i = showElThree.length - 1; i >= 0; i--) {
+						showElThree[i].classList.remove('is-hidden');
+					}
+				},
+				delay: .4,
+			}, '-=.4')
 
-	function removeTwo() {
-		let i = showElTwo.length;
-		for (i = showElTwo.length - 1; i >= 0; i--) {
-			showElTwo[i].className += ' is-hidden';
-		}
-	}
+			.to(yo10, .6, {
+				bezier : {
+					values: tlYo10
+				}
+			}, '-=.4')
+			.to(yo11, .6, {
+				bezier : {
+					values: tlYo11
+				}
+			}, '-=.4')
+			.to(yo12, .6, {
+				bezier : {
+					values: tlYo12
+				}
+			}, '-=.4')
+			.to(yo13, .6, {
+				bezier : {
+					values: tlYo13
+				}
+			}, '-=.4')
+			.to(yo14, .6, {
+				bezier : {
+					values: tlYo14
+				}
+			}, '-=.4')
+			.to(yo16, .6, {
+				bezier : {
+					values: tlYo16
+				}
+			}, '-=.4')
+			.to(yo17, .6, {
+				bezier : {
+					values: tlYo17
+				}
+			}, '-=.4')
+			.to(yo18, .6, {
+				bezier : {
+					values: tlYo18
+				}
+			}, '-=.4')
+			.to(yo19, .6, {
+				bezier : {
+					values: tlYo19
+				},
+				delay: 0
+			}, '-=.4');
 
-// animate three
-	function animateThree() {
+		tm.pause();
 
-		btn3.classList.add('is-active');
-		let i = showElThree.length;
-		for (i = showElThree.length - 1; i >= 0; i--) {
-			showElThree[i].classList.remove('is-hidden');
-		}
-		tm.play();
-	}
-// remove three
-	function removeThree() {
-		let i = showElThree.length;
-		tm.reverse();
-		for (i = showElThree.length - 1; i >= 0; i--) {
-			showElThree[i].className += ' is-hidden';
-		}
-	}
+
+		/* - btn1 click - */
+			btn31.addEventListener('click', function () {
+				let $this = this;
+				switch (getActiveBtn()) {
+					case 3:
+						/*- remove 3-*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						tm.reverse().timeScale(8);
+					case 2:
+						/*-remove 2 -*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.add('is-hidden');
+						}
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.add('is-hidden');
+						}
+					default:
+						btn31.classList.add('is-active');
+						showText(txt31);
+						break;
+				}
+
+			}, false);
+
+
+		/* -- btn2 click -- */
+			btn32.addEventListener('click', function () {
+				switch (getActiveBtn()) {
+					case 3:
+						/*- remove 3-*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						tm.reverse().timeScale(8);
+					case 2:
+					default:
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.add('is-hidden');
+						}
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.remove('is-hidden');
+						}
+						btn32.classList.add('is-active');
+						showText(txt32);
+						break;
+				}
+			}, false);
+
+		/* -- btn3 click -- */
+			btn33.addEventListener('click', function () {
+				switch (getActiveBtn()) {
+					case 1:
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.remove('is-hidden');
+						}
+
+						btn33.classList.add('is-active');
+						setTimeout(function () {
+							tm.play().timeScale(1);
+						}, 1700);
+						showText(txt33);
+						break;
+					default:
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.remove('is-hidden');
+						}
+						btn33.classList.add('is-active');
+						tm.play().timeScale(1);
+						showText(txt33);
+						break;
+				}
+
+
+			}, false);
+
+		/* -- playBtn click -- */
+			btnPlayThree.addEventListener('click', function () {
+				switch (getActiveBtn()) {
+					case 3:
+						/*- remove 3-*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						tm.reverse().timeScale(8);
+					case 2:
+						/*-remove 2 -*/
+						for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+						}
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.add('is-hidden');
+						}
+						for (let i = showElTwo.length - 1; i >= 0; i--) {
+							showElTwo[i].classList.add('is-hidden');
+						}
+					default:
+						btn31.classList.add('is-active');
+						showText(txt31);
+						/* go to 2 position */
+						setTimeout( function () {
+							btn31.classList.remove('is-active');
+							btn32.classList.add('is-active');
+							for (let i = showElTwo.length - 1; i >= 0; i--) {
+								showElTwo[i].classList.remove('is-hidden');
+							}
+							showText(txt32);
+						}, 3000)
+						/* go to 3 position */
+						setTimeout( function () {
+							btn32.classList.remove('is-active');
+							btn33.classList.add('is-active');
+							tm.play().timeScale(1);
+							showText(txt33);
+						}, 4500);
+						break;
+				}
+
+				// if(btn3.classList.contains('is-active') ){
+				// 	/* back to 2-d position */
+				// 	btn3.classList.remove('is-active');
+				// 	removeThree();
+				// 	btn2.classList.add('is-active');
+				// 	/* back to 1 position */
+				// 	setTimeout( function () {
+				// 		removeTwo();
+				// 		btn2.classList.remove('is-active');
+				// 		btn1.classList.add('is-active');
+				// 	}, 1500);
+				// 	/* go to 2 position */
+				// 	setTimeout( function () {
+				// 		btn1.classList.remove('is-active');
+				// 		btn2.classList.add('is-active');
+				// 		tm.reverse().timeScale(8)
+				// 	}, 3000)
+				// 	/* go to 3 position */
+				// 	setTimeout( function () {
+				// 		btn2.classList.remove('is-active');
+				// 		btn3.classList.add('is-active');
+				// 		animateThree();
+				// 	}, 4500);
+				// } else {
+				// 	for (let i = sliderBtns.length - 1; i >= 0; i--) {
+				// 		sliderBtns[i].classList.remove('is-active');
+				// 	}
+				// 	btn2.classList.add('is-active');
+				// 	removeThree();
+				// 	animateTwo();
+				// 	setTimeout( function () {
+				// 		btn2.classList.remove('is-active');
+				// 		btn3.classList.add('is-active');
+				// 		animateThree();
+				// 	}, 1500);
+				// }
+			}, false);
+	// };
+
+
 
 /*------ getActiveBtn ------------------*/
 	function getActiveBtn() {
