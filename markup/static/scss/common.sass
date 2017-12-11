@@ -1122,6 +1122,9 @@ p
 	border-bottom: 2px solid #E1E1E1
 	.layout
 		padding: 25px 0
+		+r(1100)
+			width: calc(100% - 60px)
+			padding: 25px 20px
 
 .slider__nav
 	.slick-slide
@@ -1138,8 +1141,13 @@ p
 		outline: none
 	.slick-prev
 		left: -60px
+		+r(1100)
+			left: -20px
 	.slick-next
 		right: -60px
+		+r(1100)
+			right: -20px
+
 .nav__item
 	position: relative
 	height: 84px
