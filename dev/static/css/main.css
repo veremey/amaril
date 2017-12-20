@@ -821,13 +821,6 @@ body {
   height: 100%;
   margin: 0 auto;
   background-color: #F7F8FF;
-  max-height: calc(100vh - 380px);
-  overflow: hidden;
-}
-
-.page__wrapper.full-height {
-  max-height: 999999px;
-  height: auto;
 }
 
 .page__title {
@@ -1317,7 +1310,7 @@ p {
 }
 
 .statistic_first.show-light {
-  box-shadow: 0 0 5px 1px yellow;
+  box-shadow: 0 0 5px 1px #73D0F4;
 }
 
 .statistic_second {
@@ -1326,7 +1319,7 @@ p {
 }
 
 .statistic_second.show-light {
-  box-shadow: 0 0 5px 1px yellow;
+  box-shadow: 0 0 5px 1px #73D0F4;
 }
 
 .statistic__text {

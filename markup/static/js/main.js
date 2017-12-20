@@ -246,6 +246,15 @@ $(document).ready(function () {
 			ts.pause();
 
 			ts.play().timeScale(1);
+			setTimeout(function () {
+				$("html, body").animate({ scrollTop: $(document).height() }, 1000);
+				$("html, body").animate({ scrollTop: 0 }, 1000, function () {
+					ts.play().progress(0).timeScale(1);
+				});
+				// ts.play().progress(0).timeScale(1);
+
+			}, 3800);
+
 
 		} else {
 			ts.reverse().timeScale(20);
@@ -258,12 +267,6 @@ $(document).ready(function () {
 	var on = true;
 	var off = false;
 	var tl = new TimelineMax();
-
-	$('.icon-full').on('click', function () {
-		$(this).toggleClass('is-full');
-		$('.page__wrapper').toggleClass('full-height');
-		$('.slider__for, .slider__nav').slick('resize');
-	});
 
 
 //  -------------------------------------------------------------
