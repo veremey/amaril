@@ -1,7 +1,5 @@
 // Common styles of the project
 
-// Common styles of the project
-
 html
 	+selection
 		background: rgba(0, 0, 0, .2)
@@ -27,7 +25,6 @@ body
 // 	max-width: 910px
 // 	padding: 50px 20px 0
 // 	margin: 0 auto
-
 
 .page__title
 	font-size: 24px
@@ -651,6 +648,13 @@ p
 	&.mod-bottom
 		margin-bottom: 87px
 
+.page-three
+	.desc_blue
+		top: 4%
+		&.is-hidden
+			top: -6%
+
+
 .slider
 	position: relative
 	display: flex
@@ -744,14 +748,33 @@ p
 		position: relative
 		width: 360px
 		margin: 0 auto
-		transform: translate(0, -36px)
-		height: 16px
-		background: $n url('../img/content/three/scale.png') 0 100% no-repeat
+		transform: translate(0, -31px)
+		height: 4px
+		background-color: #EDEEF1
+		overflow: hidden
+		// background: $n url('../img/content/three/scale.png') 0 100% no-repeat
 		z-index: 2
+		&_line
+			position: absolute
+			top: 0
+			bottom: 0
+			background-color: #535CA1
+			left: -100%
+			width: 100%
+			z-index: 3
+		&_line2
+			position: absolute
+			top: 0
+			bottom: 0
+			background-color: #535CA1
+			left: -100%
+			width: 100%
+			z-index: 3
 		&.scale-2
 			width: 647px
 			max-width: 87%
-			background: $n url('../img/content/two/scale.png') 0 100% no-repeat
+			background-color: #EDEEF1
+			// background: $n url('../img/content/two/scale.png') 0 100% no-repeat
 			+r(730)
 				background-position: 30%;
 	&.mod-2
@@ -1152,8 +1175,14 @@ p
 	position: relative
 	height: 84px
 	border-top: 4px solid $n
-	background-color: #F1F1F1
+	background-color: #F8F8FF
 	cursor: pointer
+	overflow: hidden
+
+.nav__img
+	+vcenter
+	max-width: 100%
+	max-height: 100%
 
 .slick-current
 	.nav__item

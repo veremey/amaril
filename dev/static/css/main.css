@@ -442,7 +442,7 @@ blockquote {
 .icon-full {
   position: absolute;
   top: 30px;
-  left: 100px;
+  right: 100px;
   display: inline-block;
   background-image: url(../img/png-sprite/96dpi/sprite.png);
   background-position: 0px 0px;
@@ -452,10 +452,16 @@ blockquote {
   background-repeat: no-repeat;
 }
 
+@media only screen and (max-width: 1366px) {
+  .icon-full {
+    right: 30px;
+  }
+}
+
 @media only screen and (max-width: 1200px) {
   .icon-full {
     top: 0;
-    left: 5%;
+    right: 5%;
   }
 }
 
@@ -521,33 +527,33 @@ blockquote {
 }
 
 .yo-9 {
-  top: 0%;
+  top: -9%;
   left: 20%;
 }
 
 .yo-10 {
   top: 11%;
-  left: 0%;
+  left: -6%;
 }
 
 .yo-11 {
-  top: 0%;
-  left: 0%;
+  top: -10%;
+  left: -10%;
 }
 
 .yo-12 {
-  top: 5%;
-  left: 7%;
+  top: -15%;
+  left: -17%;
 }
 
 .yo-13 {
-  top: 7%;
-  left: 7%;
+  top: -17%;
+  left: -17%;
 }
 
 .yo-14 {
-  top: 6%;
-  left: 17%;
+  top: -6%;
+  left: -17%;
 }
 
 .yo-15 {
@@ -557,22 +563,22 @@ blockquote {
 
 .yo-16 {
   top: 60%;
-  left: 97%;
+  left: 190%;
 }
 
 .yo-17 {
-  top: 80%;
-  left: 97%;
+  top: 180%;
+  left: 197%;
 }
 
 .yo-18 {
-  top: 6%;
+  top: -16%;
   left: 80%;
 }
 
 .yo-19 {
   top: 30%;
-  left: 97%;
+  left: 197%;
 }
 
 .yo-20 {
@@ -1778,6 +1784,14 @@ p {
   margin-bottom: 87px;
 }
 
+.page-three .desc_blue {
+  top: 4%;
+}
+
+.page-three .desc_blue.is-hidden {
+  top: -6%;
+}
+
 .slider {
   position: relative;
   display: -webkit-box;
@@ -1911,17 +1925,38 @@ p {
   position: relative;
   width: 360px;
   margin: 0 auto;
-  -webkit-transform: translate(0, -36px);
-          transform: translate(0, -36px);
-  height: 16px;
-  background: transparent url("../img/content/three/scale.png") 0 100% no-repeat;
+  -webkit-transform: translate(0, -31px);
+          transform: translate(0, -31px);
+  height: 4px;
+  background-color: #EDEEF1;
+  overflow: hidden;
   z-index: 2;
+}
+
+.slider__scale_line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #535CA1;
+  left: -100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.slider__scale_line2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #535CA1;
+  left: -100%;
+  width: 100%;
+  z-index: 3;
 }
 
 .slider__scale.scale-2 {
   width: 647px;
   max-width: 87%;
-  background: transparent url("../img/content/two/scale.png") 0 100% no-repeat;
+  background-color: #EDEEF1;
 }
 
 @media only screen and (max-width: 730px) {
@@ -2551,8 +2586,19 @@ p {
   position: relative;
   height: 84px;
   border-top: 4px solid transparent;
-  background-color: #F1F1F1;
+  background-color: #F8F8FF;
   cursor: pointer;
+  overflow: hidden;
+}
+
+.nav__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .slick-current .nav__item {
