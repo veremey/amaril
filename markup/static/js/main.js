@@ -159,6 +159,7 @@ $(document).ready(function () {
 			// sliderBtns.removeClass('is-active');
 			$('.slider__btn').removeClass('is-active');
 			$('.slider_first').addClass('is-active');
+			showText(txt31);
 
 			lnMax2.seek('one').timeScale(8);
 		} else {
@@ -257,6 +258,12 @@ $(document).ready(function () {
 	var on = true;
 	var off = false;
 	var tl = new TimelineMax();
+
+	$('.icon-full').on('click', function () {
+		$(this).toggleClass('is-full');
+		$('.page__wrapper').toggleClass('full-height');
+		$('.slider__for, .slider__nav').slick('resize');
+	});
 
 
 //  -------------------------------------------------------------
