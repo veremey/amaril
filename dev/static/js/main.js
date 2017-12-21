@@ -1119,7 +1119,7 @@
 					}
 					tm.play().timeScale(1);
 					showText(txt33);
-				}, 4500);
+				}, 9500);
 
 			}, false);
 		// };
