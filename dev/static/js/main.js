@@ -55,19 +55,19 @@
 	// ---------------------------------------------------------
 	$(document).ready(function () {
 
-		$('.slider__btn').each( function () {
-			$(this).on('click', function () {
-				$('.layout').removeClass('active-parent');
-				$(this).parents('.layout').addClass('active-parent');
-			});
-		});
+		// $('.slider__btn').each( function () {
+		// 	$(this).on('click', function () {
+		// 		$('.layout').removeClass('active-parent');
+		// 		$(this).parents('.layout').addClass('active-parent');
+		// 	});
+		// });
 
-		$('.slider__play').each( function () {
-			$(this).on('click', function () {
-				$('.layout').removeClass('active-parent');
-				$(this).parents('.layout').addClass('active-parent');
-			});
-		});
+		// $('.slider__play').each( function () {
+		// 	$(this).on('click', function () {
+		// 		$('.layout').removeClass('active-parent');
+		// 		$(this).parents('.layout').addClass('active-parent');
+		// 	});
+		// });
 
 		$('.slider__for').slick({
 			slidesToShow: 1,
@@ -91,6 +91,7 @@
 			var $currentSlide = $("[data-slick-index='" +currentSlide+ "']");
 
 			// console.log($currentSlide);
+			$('.layout').removeClass('active-parent');
 
 			$currentSlide.find('.layout').addClass('active-parent');
 			$currentSlide.find('.slider_first').removeClass('is-active');
@@ -146,8 +147,8 @@
 				tlStartCa.play();
 			} else {
 				$('.forn').removeClass('is-loaded');
-				tlStartK.reverse();
-				tlStartCa.reverse();
+				tlStartK.reverse().timeScale(100);
+				tlStartCa.reverse().timeScale(100);
 
 					let box = document.querySelector('.stimulant');
 					let getPic = document.querySelector('.forn__pic');
@@ -205,9 +206,9 @@
 				// sliderBtns.removeClass('is-active');
 				$('.slider__btn').removeClass('is-active');
 				$('.slider_first').addClass('is-active');
-				showText(txt31);
 
 				lnMax2.seek('one').timeScale(8);
+				showText(txt31);
 			} else {
 				lnMax2.seek('one').timeScale(8);
 
@@ -216,8 +217,8 @@
 				tm.reverse().timeScale(8);
 
 				// sliderBtns.removeClass('is-active');
-				btn31.classList.add('is-active');
-				showText(txt31);
+				// btn31.classList.add('is-active');
+				// showText(txt31);
 
 			}
 		/*------ four page active ---------*/
@@ -251,12 +252,19 @@
 
 
 				$(window).on('scroll', function () {
-					var startAnimDiagramm = $('.diagramm').offset().top - $(window).scrollTop();
+					var elementTop = $('.diagramm').offset().top;
+					var elementBottom = elementTop + $('.diagramm').outerHeight();
+					var viewportTop = $(window).scrollTop();
+					var viewportBottom = viewportTop + $(window).height();
+					var viewportOut = viewportTop - elementBottom;
 
-					if(startAnimDiagramm <= 0) {
+					if(elementBottom < viewportTop && elementBottom > viewportOut){
 						tl.play().timeScale(1);
+						console.log('show');
+					} else {
+						tl.reverse().timeScale(100);
+						console.log('hide');
 					}
-
 				});
 
 			} else {
@@ -292,14 +300,19 @@
 				ts.pause();
 
 				ts.play().timeScale(1);
-				setTimeout(function () {
-					$("html, body").animate({ scrollTop: $(document).height() }, 1000);
-					$("html, body").animate({ scrollTop: 0 }, 1000, function () {
-						ts.play().progress(0).timeScale(1);
-					});
-					// ts.play().progress(0).timeScale(1);
 
-				}, 3800);
+				$(window).on('scroll', function () {
+					var elementTop = $('.diagramm').offset().top;
+					var elementBottom = elementTop + $('.diagramm').outerHeight();
+					var viewportTop = $(window).scrollTop();
+					var viewportBottom = viewportTop + $(window).height();
+
+					if(elementBottom > viewportTop && elementTop < viewportBottom){
+						ts.play().timeScale(1);
+					} else {
+						ts.reverse().timeScale(100);
+					}
+				});
 
 
 			} else {
@@ -1042,7 +1055,7 @@
 				btn33.classList.add('is-active');
 
 				setTimeout(function () {
-					tm.play().timeScale(1);
+					tm.play().timeScale(0.6);
 				}, 1700);
 
 				showText(txt33);
@@ -1123,6 +1136,34 @@
 		}
 
 
+		$(window).on('resize', function () {
+
+			var bntHalfWidth = ($('.slider_2').width() / 2)
+
+			btnPosition_1 = $('.slider_1').position().left;
+			btnPosition_2 = $('.slider_2').position().left;
+			mbtnPosition_2 = btnPosition_2 - btnPosition_1 - bntHalfWidth;
+			btnPosition_3 = $('.slider_3').position().left;
+			mbtnPosition_3 =  btnPosition_3 - btnPosition_2 - bntHalfWidth ;
+			console.log(mbtnPosition_3);
+
+			btnPosition_4 = $('.slider_4').position().left;
+			mbtnPosition_4 = btnPosition_4 - btnPosition_3 ;
+			btnPosition_5 = $('.slider_5').position().left;
+
+			mbtnPosition_5 = btnPosition_5 - btnPosition_4;
+			mbtnPosition_6 = btnPosition_5 - btnPosition_4;
+
+			 btnPosition_31 = $('.slider_31').position().left;
+			 btnPosition_32 = $('.slider_32').position().left;
+			 mbtnPosition_31 = btnPosition_32 - btnPosition_31 - bntHalfWidth;
+			 btnPosition_33 = $('.slider_33').position().left;
+			 mbtnPosition_32 =  btnPosition_33 - btnPosition_32 - bntHalfWidth ;
+			 mbtnPosition_33 = btnPosition_33 - btnPosition_32 - bntHalfWidth;
+		});
+
+
+
 	});//document ready
 
 	let tm = new TimelineMax();
@@ -1164,11 +1205,13 @@
 	let line = $('.slider__scale_line');
 	let line2 = $('.slider__scale_line2');
 
+	var bntHalfWidth = ($('.slider_2').width() / 2 )
+
 	let btnPosition_1 = $('.slider_1').position().left;
 	let btnPosition_2 = $('.slider_2').position().left;
-	let mbtnPosition_2 = btnPosition_2 - btnPosition_1 - 30;
+	let mbtnPosition_2 = btnPosition_2 - btnPosition_1 - bntHalfWidth;
 	let btnPosition_3 = $('.slider_3').position().left;
-	let mbtnPosition_3 =  btnPosition_3 - btnPosition_2 - 30 ;
+	let mbtnPosition_3 =  btnPosition_3 - btnPosition_2 - bntHalfWidth ;
 
 	let btnPosition_4 = $('.slider_4').position().left;
 	let mbtnPosition_4 = btnPosition_4 - btnPosition_3 ;
@@ -1180,15 +1223,16 @@
 
 	let btnPosition_31 = $('.slider_31').position().left;
 	let btnPosition_32 = $('.slider_32').position().left;
-	let mbtnPosition_31 = btnPosition_32 - btnPosition_31 - 30;
+	let mbtnPosition_31 = btnPosition_32 - btnPosition_31 - bntHalfWidth;
 	let btnPosition_33 = $('.slider_33').position().left;
-	let mbtnPosition_32 =  btnPosition_33 - btnPosition_32 - 30 ;
-	let mbtnPosition_33 = btnPosition_33 - btnPosition_32 - 30;
+	let mbtnPosition_32 =  btnPosition_33 - btnPosition_32 - bntHalfWidth ;
+	let mbtnPosition_33 = btnPosition_33 - btnPosition_32 - bntHalfWidth;
 
-	console.log(mbtnPosition_31);
-	console.log(mbtnPosition_32);
-	console.log(mbtnPosition_33);
-	console.log(line2.width());
+
+	// console.log(mbtnPosition_31);
+	// console.log(mbtnPosition_32);
+	// console.log(mbtnPosition_33);
+	// console.log(line2.width());
 
 
 	lnMax
@@ -1259,7 +1303,6 @@
 	let showElFourEnd = $('.active-parent').find('[data-four-end]');
 	let showElFourStart = $('.active-parent').find('[data-four-start]');
 	let showElFive = $('.active-parent').find('[data-five]');
-
 
 
 	const txt31 = document.querySelector('.explan-31');
@@ -1361,8 +1404,15 @@
 			{top: '41%', left: '84%'},
 			{top: '80%', left: '75%'},
 			{top: '64%', left: '70%'}
-
 		];
+		if ($(window).width() < 651 ) {
+			caMoveIn1 = [
+				{top: '28%', left: '80%'},
+				{top: '42%', left: '86%'},
+				{top: '73%', left: '77%'},
+				{top: '93%', left: '61%'}
+			];
+		}
 		let caMoveIn3 = [
 			{top: '33%', left: '89%'}, /*-5-*/
 			{top: '40%', left: '84%'},
@@ -1380,6 +1430,17 @@
 			{top: '73%', left: '77%'},
 			{top: '58%', left: '64%'}
 		];
+
+		if ($(window).width() < 651 ) {
+			caMoveIn4 = [
+				{top: '28%', left: '80%'}, /*-1-*/
+				{top: '42%', left: '86%'},
+				{top: '73%', left: '77%'},
+				{top: '68%', left: '64%'}
+			];
+		}
+
+
 		let caMoveIn5 = [
 			{top: '17%', left: '75%'}, /*-3-*/
 			{top: '43%', left: '85%'},

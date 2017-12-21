@@ -488,12 +488,24 @@ blockquote {
 
 .yo-1 {
   top: 60%;
-  left: 22%;
+  left: 18%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .yo-1 {
+    left: 19%;
+  }
 }
 
 .yo-2 {
   top: 40%;
-  left: 30%;
+  left: 28%;
+}
+
+@media only screen and (max-width: 650px) {
+  .yo-2 {
+    left: 17%;
+  }
 }
 
 .yo-3 {
@@ -684,6 +696,12 @@ blockquote {
   left: 90%;
 }
 
+@media only screen and (max-width: 640px) {
+  .ca-4 {
+    display: none;
+  }
+}
+
 .ca-5 {
   top: 0%;
   left: 80%;
@@ -747,6 +765,18 @@ blockquote {
   left: 44px;
 }
 
+@media only screen and (max-width: 850px) {
+  .stimulant__item_1 {
+    left: 23px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .stimulant__item_1 {
+    top: 15px;
+  }
+}
+
 .stimulant__item_2 {
   top: 20px;
   left: 84px;
@@ -754,11 +784,35 @@ blockquote {
           transform: rotate(40deg);
 }
 
+@media only screen and (max-width: 850px) {
+  .stimulant__item_2 {
+    left: 53px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .stimulant__item_2 {
+    top: 18px;
+  }
+}
+
 .stimulant__item_3 {
   top: 40px;
   left: 65px;
   -webkit-transform: rotate(-20deg);
           transform: rotate(-20deg);
+}
+
+@media only screen and (max-width: 850px) {
+  .stimulant__item_3 {
+    left: 34px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .stimulant__item_3 {
+    top: 30px;
+  }
 }
 
 .slick-next {
@@ -813,6 +867,8 @@ html, body {
 body {
   color: #333333;
   background-color: #F8F8FF;
+  width: 100%;
+  min-width: 568px;
   font-family: 'lato-medium-webfont', Arial, sans-serif;
 }
 
@@ -1681,6 +1737,12 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
+@media only screen and (max-width: 700px) {
+  .forn .desc_green {
+    font-size: 16px;
+  }
+}
+
 .forn .desc_green.mod-pos-2 {
   top: 5%;
   left: 46.5%;
@@ -1694,11 +1756,24 @@ p {
 
 @media only screen and (max-width: 760px) {
   .forn .desc_green.mod-pos-2 {
+    top: 7%;
     left: 43.5%;
   }
   .forn .desc_green.mod-pos-2:after {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .forn .desc_green.mod-pos-2 {
+    left: 40.5%;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .forn .desc_green.mod-pos-2 {
+    left: 38.5%;
   }
 }
 
@@ -1725,6 +1800,12 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
 }
 
+@media only screen and (max-width: 700px) {
+  .forn .desc_gray {
+    font-size: 16px;
+  }
+}
+
 .forn .desc_blue {
   position: absolute;
   top: 20px;
@@ -1733,6 +1814,12 @@ p {
   line-height: 20px;
   color: #74C9E4;
   font-family: 'lato-regular-webfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 700px) {
+  .forn .desc_blue {
+    font-size: 16px;
+  }
 }
 
 .forn .desc_blue.mod_bird:after {
@@ -1759,6 +1846,12 @@ p {
           transform: rotate(-20deg);
 }
 
+@media only screen and (max-width: 700px) {
+  .forn .desc_blue.mod-pos-2:after {
+    bottom: -20px;
+  }
+}
+
 .forn .desc_center {
   width: 200px;
   position: absolute;
@@ -1771,6 +1864,13 @@ p {
   line-height: 20px;
   color: #B3A1C5;
   font-family: 'lato-regular-webfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 800px) {
+  .forn .desc_center {
+    top: 85%;
+    font-size: 16px;
+  }
 }
 
 .forn.is-loaded .mod_bird {
@@ -1881,7 +1981,7 @@ p {
 }
 
 .slider__btn:last-of-type {
-  left: 100%;
+  left: 98%;
 }
 
 .slider__btn.is-active {
@@ -1914,7 +2014,7 @@ p {
 }
 
 .slider_32 {
-  left: 54%;
+  left: 61%;
 }
 
 .slider_33 {
@@ -2171,6 +2271,20 @@ p {
   border: 2px solid #AD9AC1;
 }
 
+@media only screen and (max-width: 850px) {
+  .stimulant__box {
+    width: 100px;
+    height: 65px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .stimulant__box {
+    width: 78px;
+    height: 50px;
+  }
+}
+
 .stimulant.is-hidden {
   top: 80%;
   opacity: 0;
@@ -2243,6 +2357,13 @@ p {
   transition: 0.6s;
 }
 
+@media only screen and (max-width: 700px) {
+  .convert .desc_gray {
+    top: 10px;
+    left: 20%;
+  }
+}
+
 .convert .yo {
   position: absolute;
   -webkit-transform: rotate(0deg);
@@ -2305,6 +2426,12 @@ p {
   line-height: 1.2;
   color: #535CA1;
   font-family: 'lato-medium-webfont', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 700px) {
+  .explan__desc {
+    font-size: 16px;
+  }
 }
 
 .primo {
