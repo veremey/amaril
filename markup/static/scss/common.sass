@@ -9,10 +9,11 @@ html, body
 	height: 100%
 
 body
+	position: relative
 	color: $text
 	background-color: #F8F8FF
 	width: 100%
-	min-width: 568px
+	// min-width: 568px
 	+lm
 
 .page__wrapper
@@ -21,7 +22,21 @@ body
 	margin: 0 auto
 	background-color: #F7F8FF
 
+.mss_rotate-phone
+	display: none
+	+r(566)
+		position: fixed
+		top: 10px
+		bottom: 10px
+		left: 0
+		right: 0
+		display: block
+		background: #BF99C3 url('../img/content/mss_rotate-phone.png') 50% 50% no-repeat
 
+.page-preview,
+.page__wrapper
+	+r(567)
+		display: none
 // .page__content
 // 	min-height: 100%
 // 	width: calc(100% - 40px)
@@ -141,6 +156,12 @@ p
 		align-items: center
 		justify-content: space-between
 		background-color: #ECEBF2
+		+r(750)
+			flex-wrap: wrap
+			text-align: center
+			padding: 20px 0 0
+			.diagramm__explain
+				justify-content: center
 		// p
 		// 	width: 50%
 		// 	text-align: center
@@ -182,6 +203,8 @@ p
 		text-align: center
 		color: #333333
 		+lr
+		+r(800)
+			margin-bottom: 20px
 		p
 			display: block
 			width: 60%
@@ -261,6 +284,8 @@ p
 		font-size: 16px
 		color: $text
 		+lr
+		+r(700)
+			font-size: 14px
 		strong
 			font-weight: bold
 		&.mod_gray
@@ -387,6 +412,8 @@ p
 	margin-bottom: 100px
 	table-layout: fixed
 	margin: 0 auto 90px
+	+r(900)
+		table-layout: fixed
 	th
 		text-align: center
 		background-color: #969BC5
@@ -1179,6 +1206,9 @@ p
 			width: calc(100% - 60px)
 			padding: 25px 20px
 
+.slider__item
+	overflow: hidden
+
 .slider__nav
 	.slick-slide
 		margin-right: 4px
@@ -1217,4 +1247,27 @@ p
 .slick-current
 	.nav__item
 		border-top: 4px solid #525CA3
+
+.page-four
+	.diagramm__linage
+		min-width: 105px
+	.diagramm__body_short
+		+r(900)
+			width: 400px
+		+r(820)
+			width: 300px
+	.diagramm__pack
+		+r(750)
+			flex-wrap: wrap
+	.diagramm__tip
+		+r(750)
+			margin-top: 20px
+
+
+.page-five
+	.diagramm
+		+r(750)
+			margin-left: 0
+			width: 100%
+
 

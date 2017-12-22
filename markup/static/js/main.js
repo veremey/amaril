@@ -28,6 +28,7 @@ $(document).ready(function () {
 		slidesToScroll: 1,
 		adaptiveHeight: true,
 		arrows: false,
+		swipe: false,
 		asNavFor: '.slider__nav'
 	});
 	$('.slider__nav').slick({
@@ -37,7 +38,21 @@ $(document).ready(function () {
 		arrows: true,
 		dots: false,
 		centerMode: false,
-		focusOnSelect: true
+		focusOnSelect: true,
+		responsive: [
+		{
+			breakpoint: 800,
+			settings: {
+				slidesToShow: 3,
+			}
+		},
+		{
+			breakpoint: 650,
+			settings: {
+				slidesToShow: 2,
+			}
+		},
+		]
 	});
 /* ----- SLIDER CHANGE ------- */
 	$('.slider__for').on('afterChange', function(event, slick, currentSlide){
@@ -214,10 +229,7 @@ $(document).ready(function () {
 
 				if(elementBottom < viewportTop && elementBottom > viewportOut){
 					tl.play().timeScale(1);
-					console.log('show');
 				} else {
-					tl.reverse().timeScale(100);
-					console.log('hide');
 				}
 			});
 
@@ -1099,7 +1111,6 @@ $(document).ready(function () {
 		mbtnPosition_2 = btnPosition_2 - btnPosition_1 - bntHalfWidth;
 		btnPosition_3 = $('.slider_3').position().left;
 		mbtnPosition_3 =  btnPosition_3 - btnPosition_2 - bntHalfWidth ;
-		console.log(mbtnPosition_3);
 
 		btnPosition_4 = $('.slider_4').position().left;
 		mbtnPosition_4 = btnPosition_4 - btnPosition_3 ;
@@ -1259,14 +1270,14 @@ let showElFourStart = $('.active-parent').find('[data-four-start]');
 let showElFive = $('.active-parent').find('[data-five]');
 
 
-const txt31 = document.querySelector('.explan-31');
-const txt32 = document.querySelector('.explan-32');
-const txt33 = document.querySelector('.explan-33');
-const txt1 = document.querySelector('.explan-1');
-const txt2 = document.querySelector('.explan-2');
-const txt3 = document.querySelector('.explan-3');
-const txt4 = document.querySelector('.explan-4');
-const txt5 = document.querySelector('.explan-5');
+const txt31 = $('.explan-31');
+const txt32 = $('.explan-32');
+const txt33 = $('.explan-33');
+const txt1 = $('.explan-1');
+const txt2 = $('.explan-2');
+const txt3 = $('.explan-3');
+const txt4 = $('.explan-4');
+const txt5 = $('.explan-5');
 
 
 function showText(arg) {
@@ -1275,7 +1286,7 @@ function showText(arg) {
 		// for (var i = delActive.length - 1; i >= 0; i--) {
 		// 	delActive[i].classList.remove('is-active');
 		// }
-		arg.classList.add('is-active');
+		arg.addClass('is-active');
 	}
 	return false;
 }

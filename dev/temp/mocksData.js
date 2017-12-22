@@ -5,24 +5,6 @@
     }
 },
 
-/* Module data structure */
-
-// moduleName: {
-//     dataType: {
-//         property: value
-//     }
-// }
-
-/* Module data example */
-
-_template: {
-    big: {
-        title: 'Hello world',
-        age: 10,
-        button: false
-    }
-},
-
 'literature': {
 	first: {
 		item: [
@@ -64,6 +46,24 @@ _template: {
 		item: [
 			'Korytkowski M et al. Diabetes Care 2002;25:1607–11.']
 	}
+},
+
+/* Module data structure */
+
+// moduleName: {
+//     dataType: {
+//         property: value
+//     }
+// }
+
+/* Module data example */
+
+_template: {
+    big: {
+        title: 'Hello world',
+        age: 10,
+        button: false
+    }
 },
 
 __pages: [{
