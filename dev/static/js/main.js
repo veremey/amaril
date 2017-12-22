@@ -1383,15 +1383,34 @@
 				{top: '0%', left: '0%'},
 				{top: '42%', left: '4%'}
 			];
+			if($(document).width() < 720 ){
+				startK4 = [
+					{top: '0%', left: '0%'},
+					{top: '50%', left: '4%'}
+				];
+			}
 		let startK5 = [
 				{top: '-16%', left: '-20%'},
 				{top: '16%', left: '3%'},
 				{top: '46%', left: '12%'}
 			];
+			if($(document).width() < 720 ){
+				startK5 = [
+					{top: '-16%', left: '-20%'},
+					{top: '16%', left: '3%'},
+					{top: '54%', left: '12%'}
+				];
+			}
 		let startK6 = [
 				{top: '0%', left: '10%'},
 				{top: '26%', left: '10%'}
 			];
+			if($(document).width() < 720 ){
+				startK6 = [
+					{top: '0%', left: '10%'},
+					{top: '37%', left: '10%'}
+				];
+			}
 	/*------ btn2 options---------------*/
 		let tl2k4 = [
 				{top: '42%', left: '4%'},
@@ -1409,6 +1428,14 @@
 				{top: '45%', left: '11%'},
 				{top: '33%', left: '11%'}
 			];
+			if($(document).width() < 720 ){
+				tl2k6 = [
+					{top: '37%', left: '10%'},
+					{top: '33%', left: '11%'},
+					{top: '45%', left: '11%'},
+					{top: '33%', left: '11%'}
+				];
+			}
 	/*-------  btn3 options- -----------*/
 		let caMoveIn1 = [
 			{top: '22%', left: '96%'}, /*-4-*/
@@ -1601,7 +1628,7 @@
 			{top: '-10%', left: '-10%'},
 			{top: '36%', left: '30%'},
 			{top: '60%', left: '37%'},
-			{top: '84%', left: '30%'}
+			{top: '64%', left: '30%'}
 		];
 		let tlYo12 = [
 			{top: '-15%', left: '-17%'},
@@ -1627,7 +1654,7 @@
 			{top: '16%', left: '97%'},
 			{top: '70%', left: '97%'},
 			{top: '81%', left: '84%'},
-			{top: '90%', left: '40%'}
+			{top: '50%', left: '40%'}
 		];
 		let tlYo17 = [
 			{top: '180%', left: '197%'},

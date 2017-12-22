@@ -525,7 +525,7 @@ blockquote {
 
 .yo-6 {
   top: 77%;
-  left: 93%;
+  left: 98%;
 }
 
 .yo-7 {
@@ -594,7 +594,7 @@ blockquote {
 }
 
 .yo-20 {
-  top: 46%;
+  top: 42%;
   left: 97%;
 }
 
@@ -729,8 +729,22 @@ blockquote {
 
 @media only screen and (max-width: 760px) {
   .block-1 {
-    top: 60%;
+    top: 61%;
     left: 14%;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .block-1 {
+    top: 65%;
+    left: 14%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block-1 {
+    -webkit-transform: scale(0.8, 0.8);
+            transform: scale(0.8, 0.8);
   }
 }
 
@@ -891,7 +905,7 @@ body {
     left: 0;
     right: 0;
     display: block;
-    background: #BF99C3 url("../img/content/mss_rotate-phone.png") 50% 50% no-repeat;
+    background: #BF99C3 url("../img/content/mss_rotate-phone.jpg") 50% 50% no-repeat;
     background-size: cover;
   }
 }
@@ -1050,6 +1064,12 @@ p {
 
 .diagramm__wrap.flex-text .desc_blue {
   top: 4%;
+}
+
+@media only screen and (max-width: 640px) {
+  .diagramm__wrap.flex-text .desc_blue {
+    top: 0;
+  }
 }
 
 @media only screen and (max-width: 900px) {
@@ -1527,6 +1547,10 @@ p {
   width: 34%;
 }
 
+.table th:nth-child(2) {
+  width: 25%;
+}
+
 .table th:last-child {
   border-right: none;
 }
@@ -1902,7 +1926,7 @@ p {
           transform: rotate(-20deg);
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
   .forn .desc_blue.mod-pos-2:after {
     bottom: -20px;
   }
@@ -1974,6 +1998,13 @@ p {
   background-color: #F7F8FF;
   -webkit-transform: translateX(-45px);
           transform: translateX(-45px);
+}
+
+@media only screen and (max-width: 750px) {
+  .slider__play {
+    -webkit-transform: translateX(-35px);
+            transform: translateX(-35px);
+  }
 }
 
 .slider__play:after {
@@ -2249,7 +2280,8 @@ p {
 
 @media only screen and (max-width: 750px) {
   .door-2 {
-    top: 38%;
+    top: 33%;
+    left: 78%;
   }
   .door-2:before {
     -webkit-transform: scale(0.6);
@@ -2825,6 +2857,24 @@ p {
   .page-five .diagramm {
     margin-left: 0;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .page-five .diagramm__box {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .page-five .diagramm__body {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .page-five .diagramm__label {
+    margin: 20px 0 0 48px;
   }
 }
 

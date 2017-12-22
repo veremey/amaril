@@ -31,7 +31,7 @@ body
 		left: 0
 		right: 0
 		display: block
-		background: #BF99C3 url('../img/content/mss_rotate-phone.png') 50% 50% no-repeat
+		background: #BF99C3 url('../img/content/mss_rotate-phone.jpg') 50% 50% no-repeat
 		background-size: cover
 
 .page-preview,
@@ -143,6 +143,8 @@ p
 					font-size: get-vw(28px)
 			.desc_blue
 				top: 4%
+				+r(640)
+					top: 0
 			.explan__desc
 				+r(900)
 					font-size: get-vw(36px)
@@ -425,6 +427,8 @@ p
 		border-right: 1px solid #CACDDA
 		&:first-child
 			width: 34%
+		&:nth-child(2)
+			width: 25%
 		&:last-child
 			border-right: none
 	td
@@ -672,7 +676,7 @@ p
 			&:after
 				bottom: -30px
 				+rotate(-20)
-				+r(700)
+				+r(750)
 					bottom: -20px
 	.desc_center
 		width: 200px
@@ -721,6 +725,8 @@ p
 		cursor: pointer
 		background-color: $body
 		+trx(-45px)
+		+r(750)
+			+trx(-35px)
 		&:after
 			content: ''
 			position: absolute
@@ -901,7 +907,8 @@ p
 				right: -10px
 				transform: scale(.8) rotate(180deg)
 		+r(750)
-			top: 38%
+			top: 33%
+			left: 78%
 			&:before,
 				+scale(.6)
 			&:after
@@ -1264,11 +1271,19 @@ p
 		+r(750)
 			margin-top: 20px
 
-
 .page-five
 	.diagramm
 		+r(750)
 			margin-left: 0
 			width: 100%
+	.diagramm__box
+		+r(700)
+			width: calc(100% - 100px)
+	.diagramm__body
+		+r(700)
+			width: 100%
+	.diagramm__label
+		+r(700)
+			margin: 20px 0 0 48px
 
 

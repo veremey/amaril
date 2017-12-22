@@ -60,7 +60,7 @@
 	}
 	&-6 {
 		top: 77%;
-		left: 93%;
+		left: 98%;
 	}
 	&-7 {
 		top: 83%;
@@ -115,7 +115,7 @@
 		left: 197%;
 	}
 	&-20 {
-		top: 46%;
+		top: 42%;
 		left: 97%;
 	}
 	&.is-hidden {
@@ -208,8 +208,15 @@
 		top: 59%;
 		left: 16%;
 		@media only screen and (max-width: 760px) {
-			top: 60%;
+			top: 61%;
 			left: 14%;
+		}
+		@media only screen and (max-width: 730px) {
+			top: 65%;
+			left: 14%;
+		}
+		@media only screen and (max-width: 600px) {
+			transform: scale(.8, .8)
 		}
 	}
 	&-2 {
