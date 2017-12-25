@@ -2043,6 +2043,8 @@ p {
   outline: none;
   margin: 0;
   color: #333333;
+  font-size: 18px;
+  line-height: 2em;
   line-height: 30px;
   text-align: center;
   background-color: #EDEEF1;
@@ -2055,12 +2057,8 @@ p {
 }
 
 .slider__btn:hover {
-  width: 36px;
-  height: 36px;
-  font-size: 18px;
-  line-height: 36px;
-  -webkit-transform: translateY(30%);
-          transform: translateY(30%);
+  -webkit-transform: translateY(50%) scale(1.3);
+          transform: translateY(50%) scale(1.3);
 }
 
 .slider__btn:first-of-type {
@@ -2097,7 +2095,7 @@ p {
 }
 
 .slider_31 {
-  left: 21%;
+  left: 22%;
 }
 
 .slider_32 {
