@@ -2616,6 +2616,12 @@ p {
   font-family: 'lato-medium-webfont', Arial, sans-serif;
 }
 
+@media only screen and (max-width: 900px) {
+  .explan__desc {
+    font-size: 2vw;
+  }
+}
+
 @media only screen and (max-width: 700px) {
   .explan__desc {
     font-size: 16px;
@@ -3007,6 +3013,14 @@ p {
   .page-five .diagramm__linage {
     background-size: contain;
   }
+}
+
+.page-five .rubric {
+  margin-left: -40px;
+}
+
+.page-five .literature {
+  margin-left: 40px;
 }
 
 .literature {

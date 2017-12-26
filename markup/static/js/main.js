@@ -212,14 +212,15 @@ $(document).ready(function () {
 			$(window).on('scroll', function () {
 				var elementTop = $('.diagramm__pack').offset().top;
 				var elementBottom = elementTop + $('.diagramm__pack').outerHeight();
+				var elementCenter = elementTop + ($('.diagramm__pack').outerHeight() / 2 );
 				var viewportTop = $(window).scrollTop();
 				var viewportBottom = viewportTop + $(window).height();
 				var viewportOut = viewportTop - elementBottom;
 
-				console.log(elementBottom + ' elementBottom');
+				console.log(elementCenter + ' elementCenter');
 				console.log(viewportBottom + ' viewportBottom');
 
-				if(elementBottom < viewportBottom && elementBottom > viewportTop){
+				if(elementCenter < viewportBottom && elementBottom > viewportTop){
 					tl.play().timeScale(1);
 					console.log('show');
 				} else {
