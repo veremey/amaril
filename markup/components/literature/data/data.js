@@ -17,7 +17,7 @@ var data = {literature: {
 	},
 	three: {
 		item: [
-			'Глимепирид также ингибирует выход глюкозы из печени',
+			'Müller G, Wied S. Diabetes 1993;42:1852–67.',
 		]
 	},
 	four: {
