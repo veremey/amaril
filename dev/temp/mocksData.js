@@ -1,10 +1,3 @@
-'head': {
-    defaults: {
-        title: 'amaril',
-        useSocialMetaTags: false
-    }
-},
-
 'literature': {
 	first: {
 		item: [
@@ -63,6 +56,13 @@ _template: {
         title: 'Hello world',
         age: 10,
         button: false
+    }
+},
+
+'head': {
+    defaults: {
+        title: 'amaril',
+        useSocialMetaTags: false
     }
 },
 

@@ -172,6 +172,9 @@
 	&-1 {
 		top: 0;
 		left: 100%;
+		@media only screen and (max-width: 740px) {
+			display: none;
+		}
 	}
 	&-2 {
 		top: 16%;
@@ -184,7 +187,7 @@
 	&-4 {
 		top: 16%;
 		left: 90%;
-		@media only screen and (max-width: 640px) {
+		@media only screen and (max-width: 740px) {
 			display: none;
 		}
 	}
@@ -204,27 +207,57 @@
 	background: url('../img/content/close.svg') 50% 50% no-repeat;
 	opacity: 1;
 	transition: opacity .4s;
+	@media only screen and (max-width: 670px) {
+		transform: scale(.8);
+	}
 	&-1 {
 		top: 59%;
 		left: 16%;
-		@media only screen and (max-width: 760px) {
+		@media only screen and (max-width: 835px) {
+			top: 59%;
+			left: 15.5%;
+		}
+		@media only screen and (max-width: 750px) {
+			top: 61%;
+			left: 15.2%;
+		}
+		@media only screen and (max-width: 730px) {
 			top: 61%;
 			left: 14%;
 		}
-		@media only screen and (max-width: 730px) {
-			top: 65%;
+		@media only screen and (max-width: 650px) {
+			top: 64%;
 			left: 14%;
 		}
-		@media only screen and (max-width: 600px) {
-			transform: scale(.8, .8)
+		@media only screen and (max-width: 610px) {
+			top: 68%;
+			left: 14%;
+		}
+		@media only screen and (max-width: 575px) {
+			top: 71%;
+			transform: scale(.6);
 		}
 	}
 	&-2 {
-		width: 44px;
-		height: 44px;
-		top: 44%;
+		width: 36px;
+		height: 36px;
+		top: 48%;
 		left: 83%;
-		background: url('../img/content/close2.svg') 50% 50% no-repeat;
+		background: url('../img/content/close.svg') 50% 50% no-repeat;
+		transform: rotate(50deg);
+		@media only screen and (max-width: 670px) {
+			transform: scale(.8) rotate(50deg);
+		}
+		@media only screen and (max-width: 730px) {
+			top: 52%;
+		}
+		@media only screen and (max-width: 610px) {
+			top: 57%;
+			left: 82%;
+		}
+		@media only screen and (max-width: 575px) {
+			transform: scale(.6) rotate(50deg);
+		}
 	}
 	&.is-hidden {
 		opacity: 0;

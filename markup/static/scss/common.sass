@@ -369,36 +369,36 @@ p
 		+lr
 	&.mod-4
 		&-1-1
-			height: 40px
-			bottom: -40px
+			height: 15%
+			bottom: -15%
 		&-1-2
-			height: 208px
-			bottom: -208px
+			height: 70%
+			bottom: -70%
 		&-2-1
-			height: 98px
-			bottom: -98px
+			height: 35%
+			bottom: -35%
 		&-2-2
-			height: 228px
-			bottom: -228px
+			height: 80%
+			bottom: -80%
 		&-3-1
-			height: 20px
-			bottom: -20px
+			height: 10%
+			bottom: -10%
 		&-3-2
-			height: 244px
-			bottom: -244px
+			height: 85%
+			bottom: -85%
 	&.mod-5
 		&-1-1
-			height: 47px
-			bottom: -47px
+			height: 20%
+			bottom: -20%
 		&-1-2
-			height: 92px
-			bottom: -92px
+			height: 30%
+			bottom: -30%
 		&-2-1
-			height: 130px
-			bottom: -130px
+			height: 50%
+			bottom: -50%
 		&-2-2
-			height: 206px
-			bottom: -206px
+			height: 75%
+			bottom: -75%
 
 .iteration-second
 	.statistic_first
@@ -526,6 +526,7 @@ p
 				background: #FCC31F
 				&:after
 					margin-top: -.2em
+
 	&__text
 		display: flex
 		flex-wrap: wrap
@@ -619,15 +620,20 @@ p
 			top: 5%
 			left: 46.5%
 			+r(900)
+				top: 7%
 				left: 45.5%
 			+r(760)
-				top: 7%
 				left: 43.5%
 				&:after
 					+scale(.8)
+			+r(700)
+				top: 8%
+				left: get-vw(470px)
 			+r(650)
 				left: 40.5%
-			+r(570)
+			+r(600)
+				left: 39.5%
+			+r(575)
 				left: 38.5%
 			&:after
 				content: ''
@@ -765,7 +771,7 @@ p
 		&:first-of-type
 			left: 0
 		&:last-of-type
-			left: 98%
+			left: 95%
 		&.is-active
 			width: 44px
 			height: 44px
@@ -790,7 +796,7 @@ p
 	&_31
 		left: 22%
 	&_32
-		left: 61%
+		left: 56%
 	&_33
 		left: 90%
 
@@ -942,6 +948,10 @@ p
 	left: 45%
 	transition: opacity .6s, top 1.4s .7s
 	// +tr(.6s)
+	+r(750)
+		top: 55%
+	+r(680)
+		top: 65%
 	&__name
 		font-size: 18px
 		color: #13942C
@@ -949,6 +959,10 @@ p
 		text-align: center
 		+lr
 		+tr(.4s)
+		+r(750)
+			font-size: 14px
+			margin-bottom: 5px
+
 		&.is-hidden
 			height: 0
 			margin: 0
@@ -1008,6 +1022,8 @@ p
 		top: 0
 		left: 0
 		+tr(.6s)
+		+r(740)
+			font-size: 14px
 		+r(700)
 			top: 10px
 			left: 20%
@@ -1074,12 +1090,12 @@ p
 		width: 66vw
 		height: calc(66vw * (293/680))
 	&__img
-		position: absolute
 		+vcenter
 		max-width: 100%
 		max-height: 100%
 		opacity: 0
 		transition: all .6s .2s
+
 		will-change: opacity
 		&.is-active
 			opacity: 1
@@ -1267,6 +1283,17 @@ p
 	.diagramm__tip
 		+r(750)
 			margin-top: 20px
+	.diagramm__linage,
+	.diagramm__body
+		+r(750)
+			height: 200px
+	.diagramm__linage
+		+r(750)
+			background-size: contain
+	.diagramm__subpack
+		.diagramm__body
+			+r(750)
+				height: auto
 
 .page-five
 	.diagramm
@@ -1282,5 +1309,12 @@ p
 	.diagramm__label
 		+r(700)
 			margin: 20px 0 0 48px
+	.diagramm__linage,
+	.diagramm__body
+		+r(750)
+			height: 200px
+	.diagramm__linage
+		+r(750)
+			background-size: contain
 
 

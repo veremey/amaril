@@ -681,6 +681,12 @@ blockquote {
   left: 100%;
 }
 
+@media only screen and (max-width: 740px) {
+  .ca-1 {
+    display: none;
+  }
+}
+
 .ca-2 {
   top: 16%;
   left: 100%;
@@ -696,7 +702,7 @@ blockquote {
   left: 90%;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 740px) {
   .ca-4 {
     display: none;
   }
@@ -722,38 +728,96 @@ blockquote {
   transition: opacity .4s;
 }
 
+@media only screen and (max-width: 670px) {
+  .block {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
 .block-1 {
   top: 59%;
   left: 16%;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 835px) {
+  .block-1 {
+    top: 59%;
+    left: 15.5%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .block-1 {
+    top: 61%;
+    left: 15.2%;
+  }
+}
+
+@media only screen and (max-width: 730px) {
   .block-1 {
     top: 61%;
     left: 14%;
   }
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 650px) {
   .block-1 {
-    top: 65%;
+    top: 64%;
     left: 14%;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 610px) {
   .block-1 {
-    -webkit-transform: scale(0.8, 0.8);
-            transform: scale(0.8, 0.8);
+    top: 68%;
+    left: 14%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .block-1 {
+    top: 71%;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
   }
 }
 
 .block-2 {
-  width: 44px;
-  height: 44px;
-  top: 44%;
+  width: 36px;
+  height: 36px;
+  top: 48%;
   left: 83%;
-  background: url("../img/content/close2.svg") 50% 50% no-repeat;
+  background: url("../img/content/close.svg") 50% 50% no-repeat;
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+@media only screen and (max-width: 670px) {
+  .block-2 {
+    -webkit-transform: scale(0.8) rotate(50deg);
+            transform: scale(0.8) rotate(50deg);
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .block-2 {
+    top: 52%;
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .block-2 {
+    top: 57%;
+    left: 82%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .block-2 {
+    -webkit-transform: scale(0.6) rotate(50deg);
+            transform: scale(0.6) rotate(50deg);
+  }
 }
 
 .block.is-hidden {
@@ -1460,53 +1524,53 @@ p {
 }
 
 .statistic.mod-4-1-1 {
-  height: 40px;
-  bottom: -40px;
+  height: 15%;
+  bottom: -15%;
 }
 
 .statistic.mod-4-1-2 {
-  height: 208px;
-  bottom: -208px;
+  height: 70%;
+  bottom: -70%;
 }
 
 .statistic.mod-4-2-1 {
-  height: 98px;
-  bottom: -98px;
+  height: 35%;
+  bottom: -35%;
 }
 
 .statistic.mod-4-2-2 {
-  height: 228px;
-  bottom: -228px;
+  height: 80%;
+  bottom: -80%;
 }
 
 .statistic.mod-4-3-1 {
-  height: 20px;
-  bottom: -20px;
+  height: 10%;
+  bottom: -10%;
 }
 
 .statistic.mod-4-3-2 {
-  height: 244px;
-  bottom: -244px;
+  height: 85%;
+  bottom: -85%;
 }
 
 .statistic.mod-5-1-1 {
-  height: 47px;
-  bottom: -47px;
+  height: 20%;
+  bottom: -20%;
 }
 
 .statistic.mod-5-1-2 {
-  height: 92px;
-  bottom: -92px;
+  height: 30%;
+  bottom: -30%;
 }
 
 .statistic.mod-5-2-1 {
-  height: 130px;
-  bottom: -130px;
+  height: 50%;
+  bottom: -50%;
 }
 
 .statistic.mod-5-2-2 {
-  height: 206px;
-  bottom: -206px;
+  height: 75%;
+  bottom: -75%;
 }
 
 .iteration-second .statistic_first {
@@ -1830,18 +1894,25 @@ p {
 
 @media only screen and (max-width: 900px) {
   .forn .desc_green.mod-pos-2 {
+    top: 7%;
     left: 45.5%;
   }
 }
 
 @media only screen and (max-width: 760px) {
   .forn .desc_green.mod-pos-2 {
-    top: 7%;
     left: 43.5%;
   }
   .forn .desc_green.mod-pos-2:after {
     -webkit-transform: scale(0.8);
             transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .forn .desc_green.mod-pos-2 {
+    top: 8%;
+    left: 26.11111vw;
   }
 }
 
@@ -1851,7 +1922,13 @@ p {
   }
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 600px) {
+  .forn .desc_green.mod-pos-2 {
+    left: 39.5%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
   .forn .desc_green.mod-pos-2 {
     left: 38.5%;
   }
@@ -2066,7 +2143,7 @@ p {
 }
 
 .slider__btn:last-of-type {
-  left: 98%;
+  left: 95%;
 }
 
 .slider__btn.is-active {
@@ -2099,7 +2176,7 @@ p {
 }
 
 .slider_32 {
-  left: 61%;
+  left: 56%;
 }
 
 .slider_33 {
@@ -2333,6 +2410,18 @@ p {
   transition: opacity .6s, top 1.4s .7s;
 }
 
+@media only screen and (max-width: 750px) {
+  .stimulant {
+    top: 55%;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .stimulant {
+    top: 65%;
+  }
+}
+
 .stimulant__name {
   font-size: 18px;
   color: #13942C;
@@ -2341,6 +2430,13 @@ p {
   font-family: 'lato-regular-webfont', Arial, sans-serif;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+}
+
+@media only screen and (max-width: 750px) {
+  .stimulant__name {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
 }
 
 .stimulant__name.is-hidden {
@@ -2441,6 +2537,12 @@ p {
   left: 0;
   -webkit-transition: 0.6s;
   transition: 0.6s;
+}
+
+@media only screen and (max-width: 740px) {
+  .convert .desc_gray {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -2548,7 +2650,6 @@ p {
 }
 
 .picture__img {
-  position: absolute;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2852,6 +2953,25 @@ p {
 }
 
 @media only screen and (max-width: 750px) {
+  .page-four .diagramm__linage,
+  .page-four .diagramm__body {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .page-four .diagramm__linage {
+    background-size: contain;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .page-four .diagramm__subpack .diagramm__body {
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 750px) {
   .page-five .diagramm {
     margin-left: 0;
     width: 100%;
@@ -2873,6 +2993,19 @@ p {
 @media only screen and (max-width: 700px) {
   .page-five .diagramm__label {
     margin: 20px 0 0 48px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .page-five .diagramm__linage,
+  .page-five .diagramm__body {
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .page-five .diagramm__linage {
+    background-size: contain;
   }
 }
 

@@ -26,6 +26,7 @@ $(document).ready(function () {
 	$('.slider__for').slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
+
 		adaptiveHeight: true,
 		arrows: false,
 		swipe: false,
@@ -59,7 +60,6 @@ $(document).ready(function () {
 
 		var $currentSlide = $("[data-slick-index='" +currentSlide+ "']");
 
-		// console.log($currentSlide);
 		$('.layout').removeClass('active-parent');
 
 		$currentSlide.find('.layout').addClass('active-parent');
@@ -73,34 +73,23 @@ $(document).ready(function () {
 		var detectThreePage = $currentSlide.find('.page-three');
 		var detectFourPage = $currentSlide.find('.page-four');
 		var detectFivePage = $currentSlide.find('.page-five');
+
 		var tl = new TimelineMax();
 		var ts = new TimelineMax();
+
+
 
 	/*------ first page active ---------*/
 		if(detectFirstPage.length) {
 			$currentSlide.find('.picture__curtain').addClass('is-load');
 
-			setTimeout(function () {
-				$(' .picture__img').removeClass('is-active');
-				$(' .picture_on').addClass('is-active');
-				$('.toggler__checkbox').addClass('is-active');
-			}, 3000);
-
-			setTimeout(function () {
-				$('.picture__fog').addClass('is-active');
-			}, 3200);
+			tf.play().timeScale(1);
 
 		} else {
+
 			$('.picture__curtain').removeClass('is-load');
 
-			setTimeout(function () {
-				$(' .picture__img').addClass('is-active');
-				$(' .picture_on').removeClass('is-active');
-				$('.toggler__checkbox').removeClass('is-active');
-			}, 100);
-			setTimeout(function () {
-				$('.picture__fog').addClass('is-active');
-			}, 100);
+			tf.reverse().timeScale(100);
 
 		}
 	/*------ second page active ---------*/
@@ -221,15 +210,21 @@ $(document).ready(function () {
 
 
 			$(window).on('scroll', function () {
-				var elementTop = $('.diagramm').offset().top;
-				var elementBottom = elementTop + $('.diagramm').outerHeight();
+				var elementTop = $('.diagramm__pack').offset().top;
+				var elementBottom = elementTop + $('.diagramm__pack').outerHeight();
 				var viewportTop = $(window).scrollTop();
 				var viewportBottom = viewportTop + $(window).height();
 				var viewportOut = viewportTop - elementBottom;
 
-				if(elementBottom < viewportTop && elementBottom > viewportOut){
+				console.log(elementBottom + ' elementBottom');
+				console.log(viewportBottom + ' viewportBottom');
+
+				if(elementBottom < viewportBottom && elementBottom > viewportTop){
 					tl.play().timeScale(1);
+					console.log('show');
 				} else {
+					tl.reverse().timeScale(20);
+					console.log('hide');
 				}
 			});
 
@@ -299,16 +294,7 @@ $(document).ready(function () {
 
 	$('.picture__curtain').addClass('is-load');
 
-	setTimeout(function () {
-		$(' .picture__img').removeClass('is-active');
-		$(' .picture_on').addClass('is-active');
-		$('.toggler__checkbox').addClass('is-active');
-	}, 3000);
-
-	setTimeout(function () {
-		$('.picture__fog').addClass('is-active');
-	}, 3200);
-
+	tf.play();
 
 	/*-----toggler__desc click -------*/
 	/*---------------------*/
@@ -1131,6 +1117,7 @@ $(document).ready(function () {
 
 });//document ready
 
+let tf = new TimelineMax();
 let tm = new TimelineMax();
 let tlStartCa = new TimelineMax();
 let tlStartK = new TimelineMax();
@@ -1194,11 +1181,19 @@ let mbtnPosition_32 =  btnPosition_33 - btnPosition_32 - bntHalfWidth ;
 let mbtnPosition_33 = btnPosition_33 - btnPosition_32 - bntHalfWidth;
 
 
-// console.log(mbtnPosition_31);
-// console.log(mbtnPosition_32);
-// console.log(mbtnPosition_33);
-// console.log(line2.width());
+/* --- first page var -- */
 
+var fog = $('.picture__fog');
+var fPic = $(' .picture__img')
+var fOn = $(' .picture_on')
+var fCheck = $('.toggler__checkbox')
+
+tf
+	.set(fPic, {className: "-=is-active", delay: 3})
+	.set(fOn, {className: "+=is-active", delay: 3}, '-=3')
+	.set(fCheck, {className: "+=is-active", delay: 3}, '-=3')
+	.set(fog, {className: "+=is-active", delay: 3.2}, '-=2.8');
+tf.pause();
 
 lnMax
 	.to(line, .6, {
@@ -1333,17 +1328,17 @@ function showText(arg) {
 			{top: '87%', left: '23%'},
 		];
 
-	let startK4 = [
+	var startK4 = [
 			{top: '0%', left: '0%'},
 			{top: '42%', left: '4%'}
 		];
 		if($(document).width() < 720 ){
 			startK4 = [
 				{top: '0%', left: '0%'},
-				{top: '50%', left: '4%'}
+				{top: '53%', left: '1%'}
 			];
 		}
-	let startK5 = [
+	var startK5 = [
 			{top: '-16%', left: '-20%'},
 			{top: '16%', left: '3%'},
 			{top: '46%', left: '12%'}
@@ -1352,17 +1347,17 @@ function showText(arg) {
 			startK5 = [
 				{top: '-16%', left: '-20%'},
 				{top: '16%', left: '3%'},
-				{top: '54%', left: '12%'}
+				{top: '55%', left: '9%'}
 			];
 		}
-	let startK6 = [
+	var startK6 = [
 			{top: '0%', left: '10%'},
 			{top: '26%', left: '10%'}
 		];
 		if($(document).width() < 720 ){
 			startK6 = [
 				{top: '0%', left: '10%'},
-				{top: '37%', left: '10%'}
+				{top: '39%', left: '8%'}
 			];
 		}
 /*------ btn2 options---------------*/
