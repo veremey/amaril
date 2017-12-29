@@ -1183,6 +1183,11 @@ p {
   }
 }
 
+.diagramm__subpack .diagramm__body {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .diagramm__layout {
   display: -webkit-box;
   display: -ms-flexbox;
