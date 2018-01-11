@@ -67,24 +67,6 @@ _template: {
 },
 
 __pages: [{
-                name: 'five',
-                href: 'five.html'
-             },{
-                name: 'four',
-                href: 'four.html'
-             },{
                 name: 'index',
                 href: 'index.html'
-             },{
-                name: 'page-list',
-                href: 'page-list.html'
-             },{
-                name: 'slider',
-                href: 'slider.html'
-             },{
-                name: 'three',
-                href: 'three.html'
-             },{
-                name: 'two',
-                href: 'two.html'
              }]
