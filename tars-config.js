@@ -16,7 +16,7 @@ module.exports = {
         "workflow": "modular",
         "bundler": "webpack",
         "lint": false,
-        "useBabel": false,
+        "useBabel": true,
         "removeConsoleLog": true,
         "webpack": {
             "useHMR": false,
@@ -29,8 +29,8 @@ module.exports = {
     },
     "sourcemaps": {
         "js": {
-            "active": false,
-            "inline": false
+            "active": true,
+            "inline": true
         },
         "css": {
             "active": true,
@@ -45,6 +45,7 @@ module.exports = {
     },
     "minifyHtml": false,
     "generateStaticPath": true,
+    "devPath": "./dev/",
     "buildPath": "./builds/",
     "useBuildVersioning": true,
     "useArchiver": true,

@@ -9,9 +9,11 @@ const slick = require('slick-carousel');
 // ---------------------------------------------------------
 $(document).ready(function () {
 
+
 	$('.slider__for').on('init', function( event, slick){
 		movesOnDetectedSlider(slick.currentSlide);
 	});
+
 
 	$('.slider__for').slick({
 		slidesToShow: 1,
@@ -23,7 +25,7 @@ $(document).ready(function () {
 		asNavFor: '.slider__nav'
 	});
 	$('.slider__nav').slick({
-		slidesToShow: 3,
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		initialSlide: 1,
 		asNavFor: '.slider__for',
@@ -49,12 +51,17 @@ $(document).ready(function () {
 
 /* ----- SLIDER CHANGE ------- */
 	$('.slider__for').on('afterChange', function(event, slick, currentSlide){
+
 		movesOnDetectedSlider(currentSlide);
+
+
 	});
+
 
 	var on = true;
 	var off = false;
 	var tl = new TimelineMax();
+
 
 //  -------------------------------------------------------------
 // -------- START first slider animation --------------------------------
@@ -137,276 +144,33 @@ $(document).ready(function () {
 		playBtn = document.querySelector('.play-page-two');
 
 		playBtn.addEventListener('click', function () {
-			var $self = this;
 
-			if(playBtn.classList.contains("stop")){
-				stopSecondSliderMoves();
-				console.log('yeaa');
-				playBtn.classList.remove("stop");
-			} else {
-
-				$('.slider__for').slick("slickSetOption", "accessibility", false);
-				$('.slider__for').slick("slickSetOption", "draggable", false);
-				$('.slider__for').slick("slickSetOption", "swipe", false);
-				$('.slider__for').slick("slickSetOption", "touchMove", false);
-				$('.slider__nav').slick("slickSetOption", "accessibility", false);
-				$('.slider__nav').slick("slickSetOption", "draggable", false);
-				$('.slider__nav').slick("slickSetOption", "swipe", false);
-				$('.slider__nav').slick("slickSetOption", "touchMove", false);
-				$('.slider__nav').css({'pointer-events' : 'none'});
-				$('.slick-arrow').hide();
+			$('.slider__for').slick("slickSetOption", "accessibility", false);
+			$('.slider__for').slick("slickSetOption", "draggable", false);
+			$('.slider__for').slick("slickSetOption", "swipe", false);
+			$('.slider__for').slick("slickSetOption", "touchMove", false);
+			$('.slider__nav').slick("slickSetOption", "accessibility", false);
+			$('.slider__nav').slick("slickSetOption", "draggable", false);
+			$('.slider__nav').slick("slickSetOption", "swipe", false);
+			$('.slider__nav').slick("slickSetOption", "touchMove", false);
+			$('.slider__nav').css({'pointer-events' : 'none'});
+			$('.slick-arrow').hide();
 
 
-				let box = document.querySelector('.stimulant');
-				let getPic = document.querySelector('.forn__pic');
-				let newPic = 'static/img/content/two/formula-01.png';
+			let box = document.querySelector('.stimulant');
+			let getPic = document.querySelector('.forn__pic');
+			let newPic = 'static/img/content/two/formula-01.png';
 
-				let sliderBtns = document.getElementsByClassName('slider__btn');
-				let playBtn = document.querySelector('.slider__play');
-				let btn1 = document.querySelector('.slider_1');
-				let btn2 = document.querySelector('.slider_2');
-				let btn3 = document.querySelector('.slider_3');
-				let btn4 = document.querySelector('.slider_4');
-				let btn5 = document.querySelector('.slider_5');
+			sliderBtns = document.getElementsByClassName('slider__btn');
+			playBtn = document.querySelector('.slider__play');
+			btn1 = document.querySelector('.slider_1');
+			btn2 = document.querySelector('.slider_2');
+			btn3 = document.querySelector('.slider_3');
+			btn4 = document.querySelector('.slider_4');
+			btn5 = document.querySelector('.slider_5');
 
-				$self.classList.add('stop');
+			this.classList.add('stop');
 
-				switch (getActiveBtn()) {
-
-					case 1:
-						playSecondAnimFrom1($self);
-
-						break;
-
-					case 2:
-						/*---- do 2-d animation----------*/
-
-						for (let i = sliderBtns.length - 1; i >= 0; i--) {
-								sliderBtns[i].classList.remove('is-active');
-						}
-						for (let i = showElTwo.length - 1; i >= 0; i--) {
-							showElTwo[i].classList.remove('is-hidden');
-						}
-						lnMax.seek('two');
-						btn2.classList.add('is-active');
-						tl2.restart().timeScale(1);
-
-						/*---- do 3-d animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElThree.length - 1; i >= 0; i--) {
-								showElThree[i].classList.add('is-hidden');
-							}
-							lnMax.seek('three');
-							btn3.classList.add('is-active');
-							tl3.restart().timeScale(1);
-						}, 4000);//5000
-						/*---- do 4th animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFour.length - 1; i >= 0; i--) {
-								showElFour[i].classList.remove('is-hidden');
-							}
-							lnMax.seek('four');
-							btn4.classList.add('is-active');
-							showText(txt4);
-						}, 12000);//9000
-						/*---- do 5th animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-								showElFourEnd[i].classList.add('is-hidden');
-							}
-							for (let i = showElFive.length - 1; i >= 0; i--) {
-								showElFive[i].classList.remove('is-hidden');
-							}
-							getPic.setAttribute('src', newPic);
-
-							lnMax.seek('five');
-
-							box.classList.add('is-removed');
-							btn5.classList.add('is-active');
-							showText(txt5);
-
-							$('.slider__for').slick("slickSetOption", "accessibility", true);
-							$('.slider__for').slick("slickSetOption", "draggable", true);
-							$('.slider__for').slick("slickSetOption", "swipe", true);
-							$('.slider__for').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').slick("slickSetOption", "accessibility", true);
-							$('.slider__nav').slick("slickSetOption", "draggable", true);
-							$('.slider__nav').slick("slickSetOption", "swipe", true);
-							$('.slider__nav').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').css({'pointer-events' : 'auto'});
-
-							$('.slick-arrow').show();
-
-							$self.classList.remove('stop');
-
-						}, 18000);//13000
-						break;
-
-					case 3:
-						/*---- do 3-d animation----------*/
-
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElThree.length - 1; i >= 0; i--) {
-								showElThree[i].classList.add('is-hidden');
-							}
-							lnMax.seek('three');
-							btn3.classList.add('is-active');
-							tl3.restart().timeScale(1);
-
-						/*---- do 4th animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFour.length - 1; i >= 0; i--) {
-								showElFour[i].classList.remove('is-hidden');
-							}
-							lnMax.seek('four');
-							btn4.classList.add('is-active');
-							showText(txt4);
-						}, 8000);//9000
-						/*---- do 5th animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-								showElFourEnd[i].classList.add('is-hidden');
-							}
-							for (let i = showElFive.length - 1; i >= 0; i--) {
-								showElFive[i].classList.remove('is-hidden');
-							}
-							getPic.setAttribute('src', newPic);
-
-							lnMax.seek('five');
-
-							box.classList.add('is-removed');
-							btn5.classList.add('is-active');
-							showText(txt5);
-
-							$('.slider__for').slick("slickSetOption", "accessibility", true);
-							$('.slider__for').slick("slickSetOption", "draggable", true);
-							$('.slider__for').slick("slickSetOption", "swipe", true);
-							$('.slider__for').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').slick("slickSetOption", "accessibility", true);
-							$('.slider__nav').slick("slickSetOption", "draggable", true);
-							$('.slider__nav').slick("slickSetOption", "swipe", true);
-							$('.slider__nav').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').css({'pointer-events' : 'auto'});
-
-							$('.slick-arrow').show();
-
-							$self.classList.remove('stop');
-
-						}, 14000);//13000
-						break;
-
-					case 4:
-						/*---- do 4th animation----------*/
-
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFour.length - 1; i >= 0; i--) {
-								showElFour[i].classList.remove('is-hidden');
-							}
-							lnMax.seek('four');
-							btn4.classList.add('is-active');
-							showText(txt4);
-
-						/*---- do 5th animation----------*/
-						setTimeout(function () {
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-								showElFourEnd[i].classList.add('is-hidden');
-							}
-							for (let i = showElFive.length - 1; i >= 0; i--) {
-								showElFive[i].classList.remove('is-hidden');
-							}
-							getPic.setAttribute('src', newPic);
-
-							lnMax.seek('five');
-
-							box.classList.add('is-removed');
-							btn5.classList.add('is-active');
-							showText(txt5);
-
-							$('.slider__for').slick("slickSetOption", "accessibility", true);
-							$('.slider__for').slick("slickSetOption", "draggable", true);
-							$('.slider__for').slick("slickSetOption", "swipe", true);
-							$('.slider__for').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').slick("slickSetOption", "accessibility", true);
-							$('.slider__nav').slick("slickSetOption", "draggable", true);
-							$('.slider__nav').slick("slickSetOption", "swipe", true);
-							$('.slider__nav').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').css({'pointer-events' : 'auto'});
-
-							$('.slick-arrow').show();
-
-							$self.classList.remove('stop');
-
-						}, 7000);//13000
-						break;
-					case 5:
-						/*---- do 5th animation----------*/
-
-							for (let i = sliderBtns.length - 1; i >= 0; i--) {
-									sliderBtns[i].classList.remove('is-active');
-							}
-							for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-								showElFourEnd[i].classList.add('is-hidden');
-							}
-							for (let i = showElFive.length - 1; i >= 0; i--) {
-								showElFive[i].classList.remove('is-hidden');
-							}
-							getPic.setAttribute('src', newPic);
-
-							lnMax.seek('five');
-
-							box.classList.add('is-removed');
-							btn5.classList.add('is-active');
-							showText(txt5);
-
-							$('.slider__for').slick("slickSetOption", "accessibility", true);
-							$('.slider__for').slick("slickSetOption", "draggable", true);
-							$('.slider__for').slick("slickSetOption", "swipe", true);
-							$('.slider__for').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').slick("slickSetOption", "accessibility", true);
-							$('.slider__nav').slick("slickSetOption", "draggable", true);
-							$('.slider__nav').slick("slickSetOption", "swipe", true);
-							$('.slider__nav').slick("slickSetOption", "touchMove", true);
-							$('.slider__nav').css({'pointer-events' : 'auto'});
-
-							$('.slick-arrow').show();
-							$self.classList.remove('stop');
-
-					default:
-					break;
-				}
-
-				playSecondAnimFrom1($self);
-
-			}// if
-
-			}, false);
-
-	/*--------btn1-----------------------*/
-		btn1.addEventListener('click', function () {
-
-			/*--- detect last animation step ---------*/
 			switch (getActiveBtn()) {
 				case 5:
 					/*---- remove what to do in 5 -----*/
@@ -422,6 +186,147 @@ $(document).ready(function () {
 					}
 
 					getPic.setAttribute('src', oldPic);
+					box.classList.remove('is-removed');
+
+				case 4:
+					/*---- remove what to do in 4  ------*/
+					for (let i = showElFour.length - 1; i >= 0; i--) {
+						showElFour[i].classList.add('is-hidden');
+					}
+
+				case 3:
+					/*---- remove what to do in 3  ------*/
+					tl3.reverse().timeScale(10);
+					setTimeout(function () {
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.remove('is-hidden');
+						}
+					}, 400);
+
+				case 2:
+					/*---- remove what to do in 2  ------*/
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.add('is-hidden');
+					}
+					tl2.reverse().timeScale(8);
+
+					/*------------*/
+				case 1:
+					formula.removeClass('is-loaded');
+					setTimeout(function () {
+						tlStartK.restart();
+						tlStartCa.restart();
+					}, 900)
+
+					break;
+				default:
+					break;
+				}
+
+				/*---- do 1-st animation----------*/
+				for (let i = sliderBtns.length - 1; i >= 0; i--) {
+						sliderBtns[i].classList.remove('is-active');
+				}
+				btn1.classList.add('is-active');
+				lnMax.seek('one');
+
+				/*---- do 2-d animation----------*/
+
+				setTimeout(function () {
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.remove('is-hidden');
+					}
+					lnMax.seek('two');
+					btn2.classList.add('is-active');
+					tl2.restart().timeScale(1);
+				}, 6000);//3000
+
+				/*---- do 3-d animation----------*/
+
+				setTimeout(function () {
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
+					for (let i = showElThree.length - 1; i >= 0; i--) {
+						showElThree[i].classList.add('is-hidden');
+					}
+					lnMax.seek('three');
+					btn3.classList.add('is-active');
+					tl3.restart().timeScale(1);
+				}, 10000);//5000
+				/*---- do 4th animation----------*/
+
+				setTimeout(function () {
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
+					for (let i = showElFour.length - 1; i >= 0; i--) {
+						showElFour[i].classList.remove('is-hidden');
+					}
+					lnMax.seek('four');
+					btn4.classList.add('is-active');
+					showText(txt4);
+				}, 18000);//9000
+				/*---- do 5th animation----------*/
+				setTimeout(function () {
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+							sliderBtns[i].classList.remove('is-active');
+					}
+					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+						showElFourEnd[i].classList.add('is-hidden');
+					}
+					for (let i = showElFive.length - 1; i >= 0; i--) {
+						showElFive[i].classList.remove('is-hidden');
+					}
+					getPic.setAttribute('src', newPic);
+
+					lnMax.seek('five');
+
+					box.classList.add('is-removed');
+					btn5.classList.add('is-active');
+					showText(txt5);
+
+					$('.slider__for').slick("slickSetOption", "accessibility", true);
+					$('.slider__for').slick("slickSetOption", "draggable", true);
+					$('.slider__for').slick("slickSetOption", "swipe", true);
+					$('.slider__for').slick("slickSetOption", "touchMove", true);
+					$('.slider__nav').slick("slickSetOption", "accessibility", true);
+					$('.slider__nav').slick("slickSetOption", "draggable", true);
+					$('.slider__nav').slick("slickSetOption", "swipe", true);
+					$('.slider__nav').slick("slickSetOption", "touchMove", true);
+					$('.slider__nav').css({'pointer-events' : 'auto'});
+
+					$('.slick-arrow').show();
+
+				}, 24000);//13000
+
+
+			/*------ end copy from 5 step ----------------*/
+
+			}, false);
+
+	/*--------btn1-----------------------*/
+		btn1.addEventListener('click', function () {
+
+			/*--- detect last animation step ---------*/
+			switch (getActiveBtn()) {
+				case 5:
+					/*---- remove what to do in 5 -----*/
+					let box = document.querySelector('.stimulant');
+					let getPic = document.querySelector('.forn__pic');
+					let newPic = 'static/img/content/two/formula.png';
+
+					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+						showElFourEnd[i].classList.remove('is-hidden');
+					}
+					for (let i = showElFive.length - 1; i >= 0; i--) {
+						showElFive[i].classList.add('is-hidden');
+					}
+
+					getPic.setAttribute('src', newPic);
 					box.classList.remove('is-removed');
 
 				case 4:
@@ -481,7 +386,7 @@ $(document).ready(function () {
 					/*---- remove what to do in 5 -----*/
 					let box = document.querySelector('.stimulant');
 					let getPic = document.querySelector('.forn__pic');
-					let oldPic = 'static/img/content/two/formula.png';
+					let newPic = 'static/img/content/two/formula.png';
 
 					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
 						showElFourEnd[i].classList.remove('is-hidden');
@@ -490,7 +395,7 @@ $(document).ready(function () {
 						showElFive[i].classList.add('is-hidden');
 					}
 
-					getPic.setAttribute('src', oldPic);
+					getPic.setAttribute('src', newPic);
 					box.classList.remove('is-removed');
 
 				case 4:
@@ -537,7 +442,7 @@ $(document).ready(function () {
 					/*---- remove what to do in 5 -----*/
 					let box = document.querySelector('.stimulant');
 					let getPic = document.querySelector('.forn__pic');
-					let oldPic = 'static/img/content/two/formula.png';
+					let newPic = 'static/img/content/two/formula.png';
 
 					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
 						showElFourEnd[i].classList.remove('is-hidden');
@@ -546,7 +451,7 @@ $(document).ready(function () {
 						showElFive[i].classList.add('is-hidden');
 					}
 
-					getPic.setAttribute('src', oldPic);
+					getPic.setAttribute('src', newPic);
 					box.classList.remove('is-removed');
 
 				case 4:
@@ -597,7 +502,7 @@ $(document).ready(function () {
 					/*---- remove what to do in 5 -----*/
 					let box = document.querySelector('.stimulant');
 					let getPic = document.querySelector('.forn__pic');
-					let oldPic = 'static/img/content/two/formula.png';
+					let newPic = 'static/img/content/two/formula.png';
 
 					$('[data-four-end]').removeClass('is-hidden');
 
@@ -606,7 +511,7 @@ $(document).ready(function () {
 					// }
 					$('[data-five]').addClass('is-hidden');
 
-					getPic.setAttribute('src', oldPic);
+					getPic.setAttribute('src', newPic);
 					box.classList.remove('is-removed');
 
 					for (let i = showElFourStart.length - 1; i >= 0; i--) {
@@ -708,7 +613,15 @@ $(document).ready(function () {
 			let oldPic = 'static/img/content/two/formula.png';
 			let newPic = 'static/img/content/two/formula-01.png';
 			/*-restart 4 pos */
+			for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+				showElFourEnd[i].classList.remove('is-hidden');
+			}
+			for (let i = showElFive.length - 1; i >= 0; i--) {
+				showElFive[i].classList.add('is-hidden');
+			}
+			getPic.setAttribute('src', oldPic);
 
+			box.classList.remove('is-removed');
 			/*-set new pos*/
 
 			for (let i = sliderBtns.length - 1; i >= 0; i--) {
@@ -729,8 +642,6 @@ $(document).ready(function () {
 
 			lnMax.seek('five');
 			showText(txt5);
-
-
 			}, false);
 // --------------------------------------------------------
 // --- page three  --------------------
@@ -738,8 +649,192 @@ $(document).ready(function () {
 	let btnPlayThree = document.querySelector('.play-page-three');
 
 	/*----------------------------------------------------*/
+	/* - btn1 click - */
+		btn31.addEventListener('click', function () {
+			sliderBtns = $('.active-parent').find('.slider__btn');
+			formula = $('.active-parent').find('.forn');
+			delActive = $('.active-parent').find('.explan');
+
+			let showElTwo = $('.active-parent').find('[data-second]');
+			let showElThree = $('.active-parent').find('[data-three]');
+			let showElFour = $('.active-parent').find('[data-four]');
+			let showElFourEnd = $('.active-parent').find('[data-four-end]');
+			let showElFourStart = $('.active-parent').find('[data-four-start]');
+			let showElFive = $('.active-parent').find('[data-five]');
+
+			switch (getActiveBtn()) {
+				case 3:
+					/*- remove 3-*/
+					tm.reverse().timeScale(8);
+				case 2:
+					/*-remove 2 -*/
+					for (let i = showElThree.length - 1; i >= 0; i--) {
+						showElThree[i].classList.add('is-hidden');
+					}
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.add('is-hidden');
+					}
+				default:
+					break;
+			}
+			lnMax2.seek('one');
+			sliderBtns.removeClass('is-active');
+			btn31.classList.add('is-active');
+			showText(txt31);
+
+		}, false);
+
+	/* -- btn2 click -- */
+		btn32.addEventListener('click', function () {
+			sliderBtns = $('.active-parent').find('.slider__btn');
+			formula = $('.active-parent').find('.forn');
+			delActive = $('.active-parent').find('.explan');
+
+			let showElTwo = $('.active-parent').find('[data-second]');
+			let showElThree = $('.active-parent').find('[data-three]');
+			let showElFour = $('.active-parent').find('[data-four]');
+			let showElFourEnd = $('.active-parent').find('[data-four-end]');
+			let showElFourStart = $('.active-parent').find('[data-four-start]');
+			let showElFive = $('.active-parent').find('[data-five]');
+
+			switch (getActiveBtn()) {
+				case 3:
+					/*- remove 3-*/
+					tm.reverse().timeScale(8);
+				case 2:
+				default:
+				break;
+			}
+			for (let i = showElThree.length - 1; i >= 0; i--) {
+				showElThree[i].classList.add('is-hidden');
+			}
+			for (let i = showElTwo.length - 1; i >= 0; i--) {
+				showElTwo[i].classList.remove('is-hidden');
+			}
+			sliderBtns.removeClass('is-active');
+			lnMax2.seek('two');
+			btn32.classList.add('is-active');
+			showText(txt32);
+		}, false);
+
+	/* -- btn3 click -- */
+		btn33.addEventListener('click', function () {
+			sliderBtns = $('.active-parent').find('.slider__btn');
+			formula = $('.active-parent').find('.forn');
+			delActive = $('.active-parent').find('.explan');
+
+			let showElTwo = $('.active-parent').find('[data-second]');
+			let showElThree = $('.active-parent').find('[data-three]');
+			let showElFour = $('.active-parent').find('[data-four]');
+			let showElFourEnd = $('.active-parent').find('[data-four-end]');
+			let showElFourStart = $('.active-parent').find('[data-four-start]');
+			let showElFive = $('.active-parent').find('[data-five]');
+
+			switch (getActiveBtn()) {
+				case 1:
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.remove('is-hidden');
+					}
+					break;
+				default:
+					break;
+			}
+			for (let i = sliderBtns.length - 1; i >= 0; i--) {
+				sliderBtns[i].classList.remove('is-active');
+			}
+			for (let i = showElTwo.length - 1; i >= 0; i--) {
+				showElTwo[i].classList.remove('is-hidden');
+			}
+			setTimeout(function () {
+				for (let i = showElThree.length - 1; i >= 0; i--) {
+					showElThree[i].classList.remove('is-hidden');
+				}
+			},1000);
+
+			sliderBtns.removeClass('is-active');
+			lnMax2.seek('three');
+			btn33.classList.add('is-active');
+
+			setTimeout(function () {
+				tm.play().timeScale(0.6);
+			}, 1700);
+
+			showText(txt33);
+		}, false);
+
+	/* -- playBtn click -- */
+		btnPlayThree.addEventListener('click', function () {
+			sliderBtns = $('.active-parent').find('.slider__btn');
+			formula = $('.active-parent').find('.forn');
+			delActive = $('.active-parent').find('.explan');
+
+			let showElTwo = $('.active-parent').find('[data-second]');
+			let showElThree = $('.active-parent').find('[data-three]');
+			let showElFour = $('.active-parent').find('[data-four]');
+			let showElFourEnd = $('.active-parent').find('[data-four-end]');
+			let showElFourStart = $('.active-parent').find('[data-four-start]');
+			let showElFive = $('.active-parent').find('[data-five]');
+
+			switch (getActiveBtn()) {
+				case 3:
+					/*- remove 3-*/
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+						sliderBtns[i].classList.remove('is-active');
+					}
+					tm.reverse().timeScale(18);
+					lnMax2.seek('two');
+				case 2:
+					/*-remove 2 -*/
+					for (let i = sliderBtns.length - 1; i >= 0; i--) {
+						sliderBtns[i].classList.remove('is-active');
+					}
+					for (let i = showElThree.length - 1; i >= 0; i--) {
+						showElThree[i].classList.add('is-hidden');
+					}
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.add('is-hidden');
+					}
+					lnMax2.seek('one');
+				default:
+					break;
+			}
+			btn31.classList.add('is-active');
+			showText(txt31);
+			/* go to 2 position */
+			setTimeout( function () {
+				btn31.classList.remove('is-active');
+				lnMax2.seek('two');
+				btn32.classList.add('is-active');
+				for (let i = showElTwo.length - 1; i >= 0; i--) {
+					showElTwo[i].classList.remove('is-hidden');
+				}
+				showText(txt32);
+			}, 3000)
+			/* go to 3 position */
+			setTimeout( function () {
+				btn32.classList.remove('is-active');
+				lnMax2.seek('three');
+				btn33.classList.add('is-active');
+				for (let i = showElThree.length - 1; i >= 0; i--) {
+					showElThree[i].classList.remove('is-hidden');
+				}
+				tm.play().timeScale(1);
+				showText(txt33);
+			}, 9500);
+
+		}, false);
+	// };
 
 /*------ getActiveBtn ------------------*/
+	function getActiveBtn() {
+		let num = -1;
+		for (var i = sliderBtns.length - 1; i >= 0; i--) {
+			if (sliderBtns[i].classList.contains('is-active')) {
+				num = i + 1;
+			}
+		}
+		return num;
+	}
 
 
 	$(window).on('resize', function () {
@@ -833,6 +928,15 @@ let btnPosition_5 = $('.slider_5').position().left;
 let mbtnPosition_5 = btnPosition_5 - btnPosition_4;
 let mbtnPosition_6 = btnPosition_5 - btnPosition_4;
 
+
+let btnPosition_31 = $('.slider_31').position().left;
+let btnPosition_32 = $('.slider_32').position().left;
+let mbtnPosition_31 = btnPosition_32 - btnPosition_31 - bntHalfWidth;
+let btnPosition_33 = $('.slider_33').position().left;
+let mbtnPosition_32 =  btnPosition_33 - btnPosition_32 - bntHalfWidth ;
+let mbtnPosition_33 = btnPosition_33 - btnPosition_32 - bntHalfWidth;
+
+
 /* --- first page var -- */
 
 var fog = $('.picture__fog');
@@ -884,29 +988,29 @@ lnMax
 
 lnMax.pause();
 
-// lnMax2
-// 	.to(line2, 1.6, {
-// 		x: '+='+mbtnPosition_31,
-// 	})
-// 	.add('one')
-// 	.addPause()
-// 	.to(line2, 1.6, {
-// 		x: '+='+mbtnPosition_32,
-// 	})
-// 	.add('two')
-// 	.addPause()
-// 	.to(line2, 1.6, {
-// 		x: '+='+mbtnPosition_33,
-// 	})
-// 	.add('three')
-// 	.addPause()
-// 	.to(line2, 1.6, {
-// 		x: '+='+mbtnPosition_31,
-// 	})
-// 	.add('four')
-// 	.addPause()
+lnMax2
+	.to(line2, 1.6, {
+		x: '+='+mbtnPosition_31,
+	})
+	.add('one')
+	.addPause()
+	.to(line2, 1.6, {
+		x: '+='+mbtnPosition_32,
+	})
+	.add('two')
+	.addPause()
+	.to(line2, 1.6, {
+		x: '+='+mbtnPosition_33,
+	})
+	.add('three')
+	.addPause()
+	.to(line2, 1.6, {
+		x: '+='+mbtnPosition_31,
+	})
+	.add('four')
+	.addPause()
 
-// lnMax2.pause();
+lnMax2.pause();
 
 
 let showElTwo = $('.active-parent').find('[data-second]');
@@ -1277,21 +1381,71 @@ tl3.pause();
 	];
 
 
-function getActiveBtn() {
-	let sliderBtns = $('.active-parent').find('.slider__btn');
-	let formula = $('.active-parent').find('.forn');
-	let delActive = $('.active-parent').find('.explan');
+tm
+	.to(yo9, .6, {
+		bezier : {
+			values: tlYo9
+		},
+		onStart: function () {
+			for (let i = showElThree.length - 1; i >= 0; i--) {
+				showElThree[i].classList.remove('is-hidden');
+			}
+		},
+		delay: .4,
+	}, '-=.4')
 
-	let num = -1;
-	for (var i = sliderBtns.length - 1; i >= 0; i--) {
-		if (sliderBtns[i].classList.contains('is-active')) {
-			num = i + 1;
+	.to(yo10, .6, {
+		bezier : {
+			values: tlYo10
 		}
-	}
-	return num;
-}
+	}, '-=.4')
+	.to(yo11, .6, {
+		bezier : {
+			values: tlYo11
+		}
+	}, '-=.4')
+	.to(yo12, .6, {
+		bezier : {
+			values: tlYo12
+		}
+	}, '-=.4')
+	.to(yo13, .6, {
+		bezier : {
+			values: tlYo13
+		}
+	}, '-=.4')
+	.to(yo14, .6, {
+		bezier : {
+			values: tlYo14
+		}
+	}, '-=.4')
+	.to(yo16, .6, {
+		bezier : {
+			values: tlYo16
+		}
+	}, '-=.4')
+	.to(yo17, .6, {
+		bezier : {
+			values: tlYo17
+		}
+	}, '-=.4')
+	.to(yo18, .6, {
+		bezier : {
+			values: tlYo18
+		}
+	}, '-=.4')
+	.to(yo19, .6, {
+		bezier : {
+			values: tlYo19
+		},
+		delay: 0
+	}, '-=.4');
+
+tm.pause();
+
 
 function movesOnDetectedSlider(currentSlide) {
+
 		var $currentSlide = $("[data-slick-index='" +currentSlide+ "']");
 
 		$('.layout').removeClass('active-parent');
@@ -1335,8 +1489,55 @@ function movesOnDetectedSlider(currentSlide) {
 			tlStartCa.play().timeScale(1);
 			showText(txt1)
 		} else {
+			$('.forn').removeClass('is-loaded');
+			tlStartK.reverse().timeScale(100);
+			tlStartCa.reverse().timeScale(100);
 
-			stopSecondSliderMoves();
+				let box = document.querySelector('.stimulant');
+				let getPic = document.querySelector('.forn__pic');
+				let newPic = 'static/img/content/two/formula-01.png';
+
+				var sliderBtns = document.querySelectorAll('.slider__btn');
+				playBtn = document.querySelector('.slider__play');
+				btn1 = document.querySelector('.slider_1');
+				btn2 = document.querySelector('.slider_2');
+				btn3 = document.querySelector('.slider_3');
+				btn4 = document.querySelector('.slider_4');
+				btn5 = document.querySelector('.slider_5');
+
+					/*---- remove what to do in 5 -----*/
+					let oldPic = 'static/img/content/two/formula.png';
+
+					for (let i = showElFourEnd.length - 1; i >= 0; i--) {
+						showElFourEnd[i].classList.remove('is-hidden');
+					}
+					for (let i = showElFive.length - 1; i >= 0; i--) {
+						showElFive[i].classList.add('is-hidden');
+					}
+
+					getPic.setAttribute('src', oldPic);
+					box.classList.remove('is-removed');
+
+
+					/*---- remove what to do in 4  ------*/
+					for (let i = showElFour.length - 1; i >= 0; i--) {
+						showElFour[i].classList.add('is-hidden');
+					}
+
+
+					/*---- remove what to do in 3  ------*/
+					tl3.reverse().timeScale(10);
+					setTimeout(function () {
+						for (let i = showElThree.length - 1; i >= 0; i--) {
+							showElThree[i].classList.remove('is-hidden');
+						}
+					}, 400);
+
+					/*---- remove what to do in 2  ------*/
+					for (let i = showElTwo.length - 1; i >= 0; i--) {
+						showElTwo[i].classList.add('is-hidden');
+					}
+					tl2.reverse().timeScale(8);
 
 		}
 	/*------ three page active ---------*/
@@ -1450,189 +1651,4 @@ function movesOnDetectedSlider(currentSlide) {
 			ts.reverse().timeScale(20);
 		}
 	/* ---------------------------------------------- */
-}
-
-
-function stopSecondSliderMoves(){
-
-	var id = window.setTimeout(function() {}, 0);
-
-	console.log('----', 'id', id);
-
-	for (var i = 1; i < id; i++) {
-		window.clearTimeout(i);
-	}
-
-	/*--- detect last animation step ---------*/
-	switch (getActiveBtn()) {
-		case 5:
-			/*---- remove what to do in 5 -----*/
-			let box = document.querySelector('.stimulant');
-			let getPic = document.querySelector('.forn__pic');
-			let oldPic = 'static/img/content/two/formula.png';
-
-			for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-				showElFourEnd[i].classList.remove('is-hidden');
-			}
-			for (let i = showElFive.length - 1; i >= 0; i--) {
-				showElFive[i].classList.add('is-hidden');
-			}
-
-			getPic.setAttribute('src', oldPic);
-			box.classList.remove('is-removed');
-
-		case 4:
-			/*---- remove what to do in 4  ------*/
-			for (let i = showElFour.length - 1; i >= 0; i--) {
-				showElFour[i].classList.add('is-hidden');
-			}
-
-		case 3:
-			/*---- remove what to do in 3  ------*/
-			tl3.reverse().timeScale(10);
-			setTimeout(function () {
-				for (let i = showElThree.length - 1; i >= 0; i--) {
-					showElThree[i].classList.remove('is-hidden');
-				}
-			}, 400);
-			// lnMax.seek('two');
-
-		case 2:
-			/*---- remove what to do in 2  ------*/
-			for (let i = showElTwo.length - 1; i >= 0; i--) {
-				showElTwo[i].classList.add('is-hidden');
-			}
-			tl2.reverse().timeScale(8);
-
-			/*------------*/
-		case 1:
-			formula.removeClass('is-loaded');
-			// lnMax.seek('one');
-				break;
-		default:
-			break;
-	}
-	/*---- do animation----------*/
-
-	for (let i = showElTwo.length - 1; i >= 0; i--) {
-		showElTwo[i].classList.add('is-hidden');
-	}
-
-	// this.classList.add('is-active');//***
-	formula.removeClass('is-loaded');
-	$('.slider__btn').removeClass('is-active');
-	lnMax.seek('one');
-	$('.slider_1').addClass('is-active');
-
-	setTimeout(function () {
-		tlStartK.restart();
-		tlStartCa.restart();
-	}, 1000);
-
-	$('.slider__for').slick("slickSetOption", "accessibility", true);
-	$('.slider__for').slick("slickSetOption", "draggable", true);
-	$('.slider__for').slick("slickSetOption", "swipe", true);
-	$('.slider__for').slick("slickSetOption", "touchMove", true);
-	$('.slider__nav').slick("slickSetOption", "accessibility", true);
-	$('.slider__nav').slick("slickSetOption", "draggable", true);
-	$('.slider__nav').slick("slickSetOption", "swipe", true);
-	$('.slider__nav').slick("slickSetOption", "touchMove", true);
-	$('.slider__nav').css({'pointer-events' : 'auto'});
-
-	$('.slick-arrow').show();
-
-}
-
-function playSecondAnimFrom1 (ths) {
-	let $self = ths;
-	$self.classList.add('stop');
-
-	let box = document.querySelector('.stimulant');
-	let getPic = document.querySelector('.forn__pic');
-	let newPic = 'static/img/content/two/formula-01.png';
-
-	let sliderBtns = document.getElementsByClassName('slider__btn');
-	let playBtn = document.querySelector('.slider__play');
-	let btn1 = document.querySelector('.slider_1');
-	let btn2 = document.querySelector('.slider_2');
-	let btn3 = document.querySelector('.slider_3');
-	let btn4 = document.querySelector('.slider_4');
-	let btn5 = document.querySelector('.slider_5');
-
-	/*---- do 1-st animation----------*/
-	for (let i = sliderBtns.length - 1; i >= 0; i--) {
-			sliderBtns[i].classList.remove('is-active');
-	}
-	btn1.classList.add('is-active');
-	tlStartK.restart();
-	tlStartCa.restart();
-	lnMax.seek('one');
-	/*---- do 2-d animation----------*/
-	setTimeout(function () {
-		for (let i = sliderBtns.length - 1; i >= 0; i--) {
-				sliderBtns[i].classList.remove('is-active');
-		}
-		for (let i = showElTwo.length - 1; i >= 0; i--) {
-			showElTwo[i].classList.remove('is-hidden');
-		}
-		lnMax.seek('two');
-		btn2.classList.add('is-active');
-		tl2.restart().timeScale(1);
-	}, 5000);//3000
-	/*---- do 3-d animation----------*/
-	setTimeout(function () {
-		for (let i = sliderBtns.length - 1; i >= 0; i--) {
-				sliderBtns[i].classList.remove('is-active');
-		}
-		for (let i = showElThree.length - 1; i >= 0; i--) {
-			showElThree[i].classList.add('is-hidden');
-		}
-		lnMax.seek('three');
-		btn3.classList.add('is-active');
-		tl3.restart().timeScale(1);
-	}, 10000);//5000
-	/*---- do 4th animation----------*/
-	setTimeout(function () {
-		for (let i = sliderBtns.length - 1; i >= 0; i--) {
-				sliderBtns[i].classList.remove('is-active');
-		}
-		for (let i = showElFour.length - 1; i >= 0; i--) {
-			showElFour[i].classList.remove('is-hidden');
-		}
-		lnMax.seek('four');
-		btn4.classList.add('is-active');
-		showText(txt4);
-	}, 18000);//9000
-	/*---- do 5th animation----------*/
-	setTimeout(function () {
-		for (let i = sliderBtns.length - 1; i >= 0; i--) {
-				sliderBtns[i].classList.remove('is-active');
-		}
-		for (let i = showElFourEnd.length - 1; i >= 0; i--) {
-			showElFourEnd[i].classList.add('is-hidden');
-		}
-		for (let i = showElFive.length - 1; i >= 0; i--) {
-			showElFive[i].classList.remove('is-hidden');
-		}
-		getPic.setAttribute('src', newPic);
-
-		lnMax.seek('five');
-
-		box.classList.add('is-removed');
-		btn5.classList.add('is-active');
-		showText(txt5);
-
-		$('.slider__for').slick("slickSetOption", "accessibility", true);
-		$('.slider__for').slick("slickSetOption", "draggable", true);
-		$('.slider__for').slick("slickSetOption", "swipe", true);
-		$('.slider__for').slick("slickSetOption", "touchMove", true);
-		$('.slider__nav').slick("slickSetOption", "accessibility", true);
-		$('.slider__nav').slick("slickSetOption", "draggable", true);
-		$('.slider__nav').slick("slickSetOption", "swipe", true);
-		$('.slider__nav').slick("slickSetOption", "touchMove", true);
-		$('.slider__nav').css({'pointer-events' : 'auto'});
-
-		$('.slick-arrow').show();
-			$self.classList.remove('stop');
-	}, 24000);//13000
 }

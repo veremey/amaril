@@ -745,6 +745,18 @@ p
 			border-color: darken(#EDEEF1, 20%)
 			&:after
 				transform: translate(-56%, -50%) scale(.8)
+		&.stop
+			&:after
+				content: ''
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				width: 14px
+				height: 14px
+				border-width: 0
+				background-color: #535CA1
+				+tr(.4s)
 	&__btn
 		display: inline-block
 		width: 30px
